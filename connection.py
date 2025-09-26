@@ -1,15 +1,49 @@
 import os.path
+from PyPDF2 import PdfReader
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+from googleapiclient.http import MediaIoBaseDownload
+import io
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = [
     "https://www.googleapis.com/auth/drive.metadata.readonly",
     "https://www.googleapis.com/auth/drive.readonly",
 ]
+
+
+def process_file_in_memory(service, file_id, file_name):
+    """Downloads a file from Google Drive and processes it in memory."""
+    request = service.files().get_media(fileId=file_id)
+    file_stream = io.BytesIO()  # Create an in-memory file-like object
+    downloader = MediaIoBaseDownload(file_stream, request)
+    done = False
+    while not done:
+        status, done = downloader.next_chunk()
+        print(f"Downloading {file_name}: {int(status.progress() * 100)}% complete.")
+
+    # Reset the stream position to the beginning
+    file_stream.seek(0)
+
+    # Process the file based on its type
+    if file_name.endswith(".pdf"):
+        print(f"Processing PDF file: {file_name}")
+
+        reader = PdfReader(file_stream)
+        for page in reader.pages:
+            print(page.extract_text())  # Extract and print text from each page
+    elif file_name.lower().endswith((".jpg", ".jpeg", ".png")):
+        print(f"Processing image file: {file_name}")
+        # Example: Use PIL to process the image
+        from PIL import Image
+
+        image = Image.open(file_stream)
+        image.show()  # Display the image (or process it as needed)
+    else:
+        print(f"Unsupported file type: {file_name}")
 
 
 def load_folders(file_path):
@@ -64,5 +98,6 @@ if __name__ == "__main__":
                 print("Files:")
                 for item in items:
                     print(f"{item['name']} ({item['id']})")
+                    process_file_in_memory(service, item["id"], item["name"])
     except HttpError as error:
         print(f"An error occurred: {error}")
