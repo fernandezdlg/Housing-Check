@@ -111,7 +111,16 @@ def main():
             )
 
         # Display all results in a single table
-        st.table(results)
+        # st.table(results)
+        df_results = pd.DataFrame(results)  # Convert the results list to a DataFrame
+
+        # Apply custom styles to the DataFrame
+        styled_df = df_results.style.set_properties(
+            **{"width": "150px"}
+        )  # Set column width
+
+        # Display the styled DataFrame
+        st.dataframe(styled_df, use_container_width=True)
 
     if address:
         st.write("### Property Location on Map")

@@ -47,7 +47,12 @@ def analyze_image_problems(image, api_key):
     - Safety hazards
     - Maintenance issues
     
-    Return ONLY a simple list of problems found, one per line. All the problems must be relevant and not similar to one another. If more, select the top 3 most important ones. If no problems, return "No problems found"."""
+    Return ONLY a simple list of problems found, one per line. 
+    All the problems must be relevant and not similar to one another. 
+    If more, select the top 3 most important ones. 
+    If no problems, return "No problems found".
+    Return only evident problems that can be clearly seen in the image. 
+    Do not make guesses or assumptions about what might be wrong!"""
 
     response = model.generate_content([prompt, image])
     return response.text.strip()
