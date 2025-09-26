@@ -18,6 +18,7 @@ Requirements:
 import io
 import cv2
 import sys
+import numpy as np
 import os
 import requests
 import json
@@ -128,8 +129,8 @@ def detect_and_draw_(image, target_objects, api_key=None):
 
     objects = result["responses"][0].get("localizedObjectAnnotations", [])
 
-    # Load image with OpenCV for drawing
-    img = cv2.imread(image_path)
+    # transform from PIL to OpenCV
+    img = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
     h, w, _ = img.shape
 
     print(f"Found {len(objects)} objects in the image.")
