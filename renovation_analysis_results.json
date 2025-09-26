@@ -1,64 +1,74 @@
 {
-  "Ceilings Walls Doors": [
+  "Kitchen": [
     {
-      "category": "Ceilings / Walls / Doors",
+      "category": "Kitchen",
       "photo_analysis": {
         "visible_elements": [
-          "Textured walls with coating",
-          "Interior doors",
-          "Door frames",
-          "Ceiling with built-in lights",
-          "Built-in cabinets",
-          "Archway"
+          "Refrigerator with Integrated Freezer Compartment",
+          "Gas Built-in Stove with Oven",
+          "Microwave",
+          "Kitchen Combination Furniture",
+          "Kitchen Countertop",
+          "Operating Fittings",
+          "Wall Panels",
+          "Sink",
+          "Faucet",
+          "Spice Jars"
         ],
         "overall_condition": "good",
-        "condition_details": "The walls appear to be textured and coated with paint. The interior doors and frames are in good condition with no visible damage. The ceiling is clean and well-maintained. Built-in cabinets appear well-fitted and in good condition. The archway is clean and shows no signs of damage."
+        "condition_details": "The kitchen appears to be in good condition. The cabinets have a rich color and seem well-maintained. The countertop appears to be in good condition with no visible damage. The appliances appear relatively modern and clean. Some minor wear might be present on the cabinets and countertop, but overall the kitchen looks well-cared for."
       },
       "age_assessment": {
-        "estimated_years_since_renovation": 5,
+        "estimated_years_since_renovation": 8,
         "confidence_level": "medium",
         "aging_indicators": [
-          "Relatively modern style",
-          "Clean and well-maintained surfaces",
-          "Minimal visible wear and tear"
+          "Cabinet style and color",
+          "Appliance models",
+          "Countertop material"
         ]
       },
       "renovation_prediction": {
-        "years_until_renovation_needed": 10,
-        "urgency_level": "low",
+        "years_until_renovation_needed": 12,
+        "urgency_level": "moderate",
         "recommended_actions": [
-          "Regular cleaning",
-          "Minor touch-up painting as needed"
+          "Regular cleaning and maintenance",
+          "Inspect appliance seals",
+          "Address any minor repairs promptly"
         ]
       },
       "cost_analysis": {
         "immediate_repairs": {
-          "description": "No immediate repairs needed",
+          "description": "No immediate repairs are apparent based on the photo.",
           "estimated_cost_chf": 0,
           "items": []
         },
         "future_renovation": {
-          "description": "Repainting walls and doors, replacing door fittings, and potentially updating built-in cabinets.",
-          "estimated_cost_chf": 3000,
+          "description": "Full kitchen renovation involving replacing appliances and potentially the countertop and cabinets in 12 years.",
+          "estimated_cost_chf": 7618,
           "items": [
             {
-              "item": "Repainting walls (Dispersion)",
-              "cost": 500,
+              "item": "Refrigerator with Integrated Freezer Compartment",
+              "cost": 450,
               "unit": "m²"
             },
             {
-              "item": "Repainting doors and door frames",
-              "cost": 300,
-              "unit": "m²"
-            },
-            {
-              "item": "Replacing door fittings",
-              "cost": 150,
+              "item": "Gas Built-in Stove with Oven",
+              "cost": 1200,
               "unit": "piece"
             },
             {
-              "item": "Refacing/Replacing Built-in cabinets (Chipboard)",
-              "cost": 2050,
+              "item": "Kitchen Combination Furniture",
+              "cost": 2200,
+              "unit": "piece"
+            },
+            {
+              "item": "Kitchen Countertop",
+              "cost": 2000,
+              "unit": "piece"
+            },
+            {
+              "item": "Operating Fittings",
+              "cost": 2700,
               "unit": "piece"
             }
           ]
@@ -66,15 +76,15 @@
       },
       "risk_assessment": {
         "safety_risks": [
-          "None apparent"
+          "None apparent from the image"
         ],
         "damage_risks": [
-          "Minor wear and tear over time if not maintained"
+          "Potential for water damage around the sink area if not properly sealed."
         ],
         "priority_level": "low"
       },
-      "photo_path": "Categorised_photos/Ceilings Walls Doors/image_0.jpg",
-      "timestamp": "2025-09-26T20:45:34.642729"
+      "photo_path": "Categorised_photos\\Kitchen\\image_0.jpg",
+      "timestamp": "2025-09-26T20:54:54.841693"
     }
   ]
 }

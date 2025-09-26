@@ -57,7 +57,7 @@ def detect_and_draw(image_path, target_objects, output_path="output.jpg", api_ke
     objects = result["responses"][0].get("localizedObjectAnnotations", [])
 
     # Load image with OpenCV for drawing
-    img = cv2.imread(image_path)
+    img = cv2.imread("annotated_output.jpg")
     h, w, _ = img.shape
 
     print(f"Found {len(objects)} objects in the image.")
