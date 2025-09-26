@@ -4,47 +4,46 @@
       "category": "Community Facilities",
       "photo_analysis": {
         "visible_elements": [
-          "Garage Walls",
-          "Cement Plates (Floor)",
-          "Doors"
+          "Garden Walls, Garage Walls, Retaining Walls, Solid",
+          "Cement Plates, Access Paths",
+          "Lighting Fixtures"
         ],
         "overall_condition": "good",
-        "condition_details": "The walls and floor appear to be in good condition with minimal visible wear and tear. The doors also seem to be in working order."
+        "condition_details": "The walls and floor appear to be in good condition with minor wear. Lighting fixtures are functional and provide sufficient illumination."
       },
       "age_assessment": {
         "estimated_years_since_renovation": 5,
         "confidence_level": "medium",
         "aging_indicators": [
-          "Modern concrete finish",
-          "Clean appearance of cement plates",
-          "Minimal staining on walls"
+          "Slight discoloration of the cement plates",
+          "Minor wear on the walls"
         ]
       },
       "renovation_prediction": {
-        "years_until_renovation_needed": 25,
+        "years_until_renovation_needed": 35,
         "urgency_level": "low",
         "recommended_actions": [
-          "Regular cleaning of cement plates",
-          "Inspect walls for cracks annually"
+          "Regular cleaning and maintenance of cement plates",
+          "Inspect walls for any cracks or damage"
         ]
       },
       "cost_analysis": {
         "immediate_repairs": {
-          "description": "No immediate repairs needed.",
+          "description": "No immediate repairs needed",
           "estimated_cost_chf": 0,
           "items": []
         },
         "future_renovation": {
-          "description": "Full renovation of cement plates and walls in 25 years.",
-          "estimated_cost_chf": 15000,
+          "description": "Full renovation of walls and cement plates in 35 years",
+          "estimated_cost_chf": 10000,
           "items": [
             {
-              "item": "Cement Plates Replacement",
-              "cost": 10000,
+              "item": "Wall repair and painting",
+              "cost": 5000,
               "unit": "CHF"
             },
             {
-              "item": "Wall Refurbishment",
+              "item": "Cement plate replacement",
               "cost": 5000,
               "unit": "CHF"
             }
@@ -53,15 +52,17 @@
       },
       "risk_assessment": {
         "safety_risks": [
-          "None apparent"
+          "None apparent",
+          "Potential for slips on wet floor"
         ],
         "damage_risks": [
-          "Potential for water damage to walls and floor over time if not properly maintained"
+          "Minor cracking of cement plates over time",
+          "Wall damage from bicycles"
         ],
         "priority_level": "low"
       },
       "photo_path": "Categorised_photos/Community Facilities/image_0.jpg",
-      "timestamp": "2025-09-26T20:09:17.186359"
+      "timestamp": "2025-09-26T21:18:29.811467"
     }
   ]
 }
