@@ -74,7 +74,7 @@ def main():
                 # Remove extra quotes and clean the string
                 analysis = analysis.strip()  # Remove leading/trailing whitespace
                 if analysis.startswith("```") and analysis.endswith("```"):
-                    analysis = analysis.strip("```")  # Remove surrounding double quotes
+                    analysis = analysis[7:-3].strip()  # Remove surrounding triple backticks
                 try:
                     analysis = json.loads(
                         analysis

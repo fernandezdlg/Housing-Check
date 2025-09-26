@@ -21,7 +21,7 @@ Based on the analysis produce a grade based on:
     Medium
     Bad
 
-OUTPUT format SHOULD BE A STRICT JSON
+OUTPUT format SHOULD BE A STRICT JSON with the following keys
 '
 {
     "facade": "",
