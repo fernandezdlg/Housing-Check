@@ -1,4 +1,100 @@
-# Housing-Check 🏠🔍
+# Housing Problem Detection System
+
+This system analyzes photos of house rooms, detects problems, and marks them with red circles at their pixel coordinates.
+
+## Features
+
+- **AI-Powered Problem Detection**: Uses Google's Gemini AI to identify issues like cracks, water damage, mold, etc.
+- **Visual Problem Marking**: Draws red circles on detected problems with numbered labels
+- **Coordinate Output**: Provides exact (x, y) pixel coordinates of detected problems
+- **Simple Command Line Interface**: Easy to use with any house room photo
+
+## Setup
+
+1. Install required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Get a Google AI API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+
+3. Create a `.env` file in the project root:
+   ```
+   GOOGLE_AI_API_KEY=your_api_key_here
+   ```
+
+## Usage
+
+### Simple Version (PIL only)
+```bash
+python simple_problem_detector.py photos/photo1-balcony.jpg
+```
+
+### Full Version (with OpenCV)
+```bash
+python problem_detector.py photos/photo1-balcony.jpg
+```
+
+### With Custom Output Path
+```bash
+python simple_problem_detector.py photos/photo1-balcony.jpg output/marked_photo.jpg
+```
+
+### AI Highlighting Based on CSV Findings
+```bash
+python nano_edit.py problems_photo1-balcony.jpg.csv --output-dir highlighted
+```
+
+Use this workflow after running `real_estate_problem_analyzer.py`. It reads the generated CSV,
+groups issues per image, and asks Google Imagen to return a version of the photo where each
+problem is highlighted with a translucent overlay and numbered label. Flags of interest:
+
+- `--dry-run` prints the prompts without calling the API (no quota usage).
+- `--overwrite` forces regeneration if the destination file already exists.
+- `--model` selects an alternate Imagen edit model if your account has access.
+
+## Output
+
+The script will:
+1. Analyze the input image for problems
+2. Print detected problems with their coordinates
+3. Create a new image with red circles marking problem locations
+4. Save the marked image with a descriptive filename
+
+Example output:
+```
+Analyzing image: photos/photo1-balcony.jpg
+Found 2 problem(s):
+  1. Water stain on ceiling at (450, 200)
+  2. Crack in wall at (300, 400)
+Marked image saved as: photo1-balcony_problems_detected.jpg
+
+Success! Analysis complete.
+Original image: photos/photo1-balcony.jpg
+Marked image: photo1-balcony_problems_detected.jpg
+Problems found: 2
+```
+
+## Files
+
+- `simple_problem_detector.py` - Main script using only PIL (recommended for simplicity)
+- `problem_detector.py` - Full version with OpenCV support
+- `image_room_clasify.py` - Room categorization script
+- `requirements.txt` - Python dependencies
+
+## Problem Types Detected
+
+The AI looks for various issues including:
+- Cracks in walls or ceiling
+- Water damage or stains
+- Mold or discoloration
+- Damaged flooring
+- Broken fixtures
+- Peeling paint
+- Electrical hazards
+- Structural issues
+- Missing or damaged tiles
+- Leaks or moisture problems 🏠🔍
 
 An AI-powered image analysis tool that uses Google's Gemini Vision model to analyze photos and provide detailed descriptions of what's visible inside them. Perfect for housing inspections, property analysis, or any scenario where you need comprehensive visual understanding.
 
