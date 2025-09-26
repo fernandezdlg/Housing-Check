@@ -77,10 +77,14 @@ def main():
                     # downsample image
                     image = image.resize((512, 512))
                     output_image_path = f"anomaly_{uploaded_file.name}"
-                    detect_and_draw_(image, target_objects=targets, api_key=api_key)
-                    output_image = Image.open(output_image_path)
+                    img = detect_and_draw_(
+                        image, target_objects=targets, api_key=api_key
+                    )
+                    # Transform from cv2 to PIL
+                    output_im = Image.fromarray(img)
+                    # output_image = Image.open(output_image_path)
                     col.image(
-                        output_image,
+                        output_im,
                         caption=f"Anomalies in {uploaded_file.name}",
                         use_container_width=True,
                     )
