@@ -1,0 +1,185 @@
+{
+  "Building Envelope": [
+    {
+      "category": "Building Envelope",
+      "photo_analysis": {
+        "visible_elements": [
+          "IV windows (plastic)",
+          "Metal construction canopy",
+          "Covering in laminated safety glass",
+          "Metal railings",
+          "Sliding glass door (IV plastic)",
+          "Window seals",
+          "Exterior putty joints (elastic)",
+          "Flat roof",
+          "Drainage system"
+        ],
+        "overall_condition": "good",
+        "condition_details": "The visible elements appear to be in good condition. The windows, railings, and canopy show no visible signs of damage. The flat roof is not visible enough to assess the condition of its covering. Some wear can be expected on the elastic joints and window seals."
+      },
+      "age_assessment": {
+        "estimated_years_since_renovation": 5,
+        "confidence_level": "medium",
+        "aging_indicators": [
+          "Relatively new looking materials",
+          "Modern window style",
+          "Clean surfaces",
+          "Minimal visible wear on metal railings",
+          "Appearance of the construction material"
+        ]
+      },
+      "renovation_prediction": {
+        "years_until_renovation_needed": 15,
+        "urgency_level": "low",
+        "recommended_actions": [
+          "Regularly inspect window seals for cracking or deterioration",
+          "Monitor metal construction for corrosion",
+          "Check the condition of the exterior putty joints",
+          "Clean the laminated safety glass canopy"
+        ]
+      },
+      "cost_analysis": {
+        "immediate_repairs": {
+          "description": "No immediate repairs needed.",
+          "estimated_cost_chf": 0,
+          "items": []
+        },
+        "future_renovation": {
+          "description": "Future renovation including replacement of windows, seals, and canopy.",
+          "estimated_cost_chf": 10820,
+          "items": [
+            {
+              "item": "IV Windows (Plastic), Replacement (estimate 6 sashes)",
+              "cost": 2700,
+              "unit": "CHF"
+            },
+            {
+              "item": "Metal construction canopy replacement",
+              "cost": 5000,
+              "unit": "CHF"
+            },
+            {
+              "item": "Laminated Safety Glass Replacement",
+              "cost": 2000,
+              "unit": "CHF"
+            },
+            {
+              "item": "Rubber Seals Replacement (estimate 50m)",
+              "cost": 1000,
+              "unit": "CHF"
+            },
+            {
+              "item": "Exterior Putty Joints, Elastic Replacement",
+              "cost": 120,
+              "unit": "CHF"
+            }
+          ]
+        }
+      },
+      "risk_assessment": {
+        "safety_risks": [
+          "None apparent"
+        ],
+        "damage_risks": [
+          "Potential water damage if seals or putty joints fail"
+        ],
+        "priority_level": "low"
+      },
+      "photo_path": "Categorised_photos\\Building Envelope\\4E9A7090-HDR-Edit-2.jpg",
+      "timestamp": "2025-09-26T19:40:09.766396"
+    }
+  ],
+  "Kitchen": [
+    {
+      "category": "Kitchen",
+      "photo_analysis": {
+        "visible_elements": [
+          "Refrigerator with Integrated Freezer Compartment",
+          "Gas Built-in Stove with Oven",
+          "Microwave",
+          "Kitchen Combination Furniture",
+          "Granite Kitchen Countertop",
+          "Operating Fittings",
+          "Wall Panels",
+          "Sink",
+          "Faucet",
+          "Recessed Lighting",
+          "Under Cabinet Lighting"
+        ],
+        "overall_condition": "good",
+        "condition_details": "The kitchen appears to be in good condition. The appliances are modern and well-maintained. The cabinets and countertops appear to be in good shape with no obvious damage."
+      },
+      "age_assessment": {
+        "estimated_years_since_renovation": 5,
+        "confidence_level": "medium",
+        "aging_indicators": [
+          "Relatively modern appliances",
+          "Well-maintained condition",
+          "Contemporary cabinet style"
+        ]
+      },
+      "renovation_prediction": {
+        "years_until_renovation_needed": 15,
+        "urgency_level": "low",
+        "recommended_actions": [
+          "Regular cleaning and maintenance",
+          "Inspect seals of appliances periodically"
+        ]
+      },
+      "cost_analysis": {
+        "immediate_repairs": {
+          "description": "No immediate repairs needed.",
+          "estimated_cost_chf": 0,
+          "items": []
+        },
+        "future_renovation": {
+          "description": "Full renovation in predicted timeframe, including appliance replacement and cabinet updates.",
+          "estimated_cost_chf": 9900,
+          "items": [
+            {
+              "item": "Refrigerator with Integrated Freezer Compartment",
+              "cost": 180,
+              "unit": "m²"
+            },
+            {
+              "item": "Gas Built-in Stove with Oven",
+              "cost": 1200,
+              "unit": "piece"
+            },
+            {
+              "item": "Kitchen Combination Furniture",
+              "cost": 2200,
+              "unit": "piece"
+            },
+            {
+              "item": "Granite Kitchen Countertop",
+              "cost": 2000,
+              "unit": "piece"
+            },
+            {
+              "item": "Operating Fittings",
+              "cost": 2700,
+              "unit": "piece"
+            },
+            {
+              "item": "Steam Extractor / Fan, incl. Metal Filter",
+              "cost": 1620,
+              "unit": "piece"
+            }
+          ]
+        }
+      },
+      "risk_assessment": {
+        "safety_risks": [
+          "None apparent in the image."
+        ],
+        "damage_risks": [
+          "Minor wear and tear over time."
+        ],
+        "priority_level": "low"
+      },
+      "photo_path": "Categorised_photos\\Kitchen\\images.jpg",
+      "timestamp": "2025-09-26T19:40:15.343580"
+    }
+  ]
+}
