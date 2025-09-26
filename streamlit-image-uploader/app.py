@@ -6,33 +6,49 @@ import random
 def main():
     st.title("Housing Check")
 
-    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+    uploaded_files = st.file_uploader(
+        "Choose images...", type=["jpg", "jpeg", "png"], accept_multiple_files=True
+    )
 
-    if uploaded_file is not None:
-        # Open and display the image
-        image = Image.open(uploaded_file)
-        st.image(image, caption="Uploaded Image.", use_container_width=True)
-        st.write("")
-        st.success("Image uploaded successfully!")
+    if uploaded_files:
+        # Create a horizontal scrollable container for images
+        st.write("### Uploaded Images")
+        images_container = st.container()
+        with images_container:
+            cols = st.columns(len(uploaded_files))
+            for col, uploaded_file in zip(cols, uploaded_files):
+                image = Image.open(uploaded_file)
+                col.image(
+                    image, caption=f"{uploaded_file.name}", use_container_width=True
+                )
 
-        # Placeholder for image processing
-        st.write("Processing the image...")
-        # Simulate processing with random outputs
-        state_of_building = random.choice(["Good", "Average", "Poor"])
-        comments = random.choice(
-            ["No issues detected", "Minor cracks observed", "Severe damage detected"]
-        )
-        grade = random.randint(1, 10)
+        # Placeholder for processing results
+        st.write("### Processing Results")
+        results = []
+        for uploaded_file in uploaded_files:
+            # Simulate processing with random outputs
+            state_of_building = random.choice(["Very Good", "Good", "Medium", "Bad"])
+            comments = random.choice(
+                [
+                    "No issues detected",
+                    "Minor cracks observed",
+                    "Severe damage detected",
+                ]
+            )
+            grade = random.randint(1, 10)
 
-        # Display results in a table
-        st.subheader("Building Analysis Results")
-        st.table(
-            {
-                "State of Building": [state_of_building],
-                "Comments": [comments],
-                "Grade": [grade],
-            }
-        )
+            # Append results for the table
+            results.append(
+                {
+                    "Image Name": uploaded_file.name,
+                    "State of Building": state_of_building,
+                    "Comments": comments,
+                    "Replacement Cost per Unit": grade,
+                }
+            )
+
+        # Display all results in a single table
+        st.table(results)
 
 
 if __name__ == "__main__":
