@@ -3,8 +3,10 @@ import streamlit as st
 from PIL import Image
 import random
 import json
-
+from geopy.geocoders import Nominatim
 from process_image import analyze_image_
+from real_estate_problem_analyzer import analyze_image_problems
+import pandas as pd
 
 
 def load_prompt(prompt_file):
@@ -28,9 +30,14 @@ def main():
     property_description = st.text_area(
         "Add a description of the property (e.g., location, size, condition, etc.):"
     )
+
     if property_description:
         st.write("#### Your Description:")
         st.write(property_description)
+
+    st.write("### Property Address")
+    address = st.text_input("Enter the property address (street, city, country)")
+
     if uploaded_files:
         # Create a horizontal scrollable container for images
 
@@ -56,6 +63,7 @@ def main():
             image = image.resize((512, 512))
 
             analysis = analyze_image_(image, api_key, prompt=prompt)
+            problems = analyze_image_problems(image, api_key)
             # state_of_building = random.choice(["Very Good", "Good", "Medium", "Bad"])
             # # comments = random.choice(
             # #     [
@@ -65,24 +73,20 @@ def main():
             # #     ]
             # # )
             # grade = random.randint(1, 10)
-            print("CHECKM1")
-            print(analysis)
-            print("CHECKM2")
-            print(type(analysis))
+
             # analysis = json.loads(analysis)
             if isinstance(analysis, str):
                 # Remove extra quotes and clean the string
                 analysis = analysis.strip()  # Remove leading/trailing whitespace
                 if analysis.startswith("```") and analysis.endswith("```"):
-                    analysis = analysis[7:-3].strip()  # Remove surrounding triple backticks
+                    analysis = analysis[
+                        7:-3
+                    ].strip()  # Remove surrounding triple backticks
                 try:
                     analysis = json.loads(
                         analysis
                     )  # Parse the JSON string into a dictionary
-                    print("CHECKM3")
-                    print(type(analysis))
-                    print(dict(analysis))
-                    print("CHECKM4")
+
                 except json.JSONDecodeError as e:
                     st.error(
                         f"Failed to parse analysis result for {uploaded_file.name}: {e}"
@@ -102,11 +106,25 @@ def main():
                     "Moisture": analysis.get("moisture", ""),
                     "Elevators": analysis.get("elevators", ""),
                     "Overall Grade": analysis.get("overall_grade", ""),
+                    "Problems": problems,
                 }
             )
 
         # Display all results in a single table
         st.table(results)
+
+    if address:
+        st.write("### Property Location on Map")
+        geolocator = Nominatim(user_agent="housing-check")
+        location = geolocator.geocode(address)
+
+        if location:
+            df = pd.DataFrame(
+                [[location.latitude, location.longitude]], columns=["lat", "lon"]
+            )
+            st.map(df, zoom=15)
+        else:
+            st.error("Could not find that address. Try a different format.")
 
 
 if __name__ == "__main__":
