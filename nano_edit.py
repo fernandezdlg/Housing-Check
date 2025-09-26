@@ -23,44 +23,38 @@ import requests
 import json
 import base64
 
-def detect_and_draw(image_path, target_objects, output_path="output.jpg", api_key= None):
-    
+
+def detect_and_draw(image_path, target_objects, output_path="output.jpg", api_key=None):
+
     # Read and encode the image
-    with open(image_path, 'rb') as image_file:
+    with open(image_path, "rb") as image_file:
         image_content = image_file.read()
         encoded_image = base64.b64encode(image_content).decode()
-    
+
     # Prepare the request
     url = f"https://vision.googleapis.com/v1/images:annotate?key={api_key}"
-    
+
     request_json = {
         "requests": [
             {
-                "image": {
-                    "content": encoded_image
-                },
-                "features": [
-                    {
-                        "type": "OBJECT_LOCALIZATION",
-                        "maxResults": 50
-                    }
-                ]
+                "image": {"content": encoded_image},
+                "features": [{"type": "OBJECT_LOCALIZATION", "maxResults": 50}],
             }
         ]
     }
-    
+
     # Make the request
     response = requests.post(url, json=request_json)
-    
+
     if response.status_code != 200:
         raise Exception(f"API request failed: {response.status_code} - {response.text}")
-    
+
     result = response.json()
-    
-    if 'error' in result:
+
+    if "error" in result:
         raise Exception(f"API error: {result['error']}")
-    
-    objects = result['responses'][0].get('localizedObjectAnnotations', [])
+
+    objects = result["responses"][0].get("localizedObjectAnnotations", [])
 
     # Load image with OpenCV for drawing
     img = cv2.imread(image_path)
@@ -70,11 +64,11 @@ def detect_and_draw(image_path, target_objects, output_path="output.jpg", api_ke
     print(objects)
 
     for obj in objects:
-        name =  obj['name'].lower()  
+        name = obj["name"].lower()
         if name in [t.lower() for t in target_objects]:
             # Get bounding polygon (normalized coordinates → pixel values)
-            bounding_poly = obj['boundingPoly']['normalizedVertices']
-            vertices = [(int(v['x'] * w), int(v['y'] * h)) for v in bounding_poly]
+            bounding_poly = obj["boundingPoly"]["normalizedVertices"]
+            vertices = [(int(v["x"] * w), int(v["y"] * h)) for v in bounding_poly]
 
             # Draw bounding box
             for i in range(len(vertices)):
@@ -83,8 +77,15 @@ def detect_and_draw(image_path, target_objects, output_path="output.jpg", api_ke
                 cv2.line(img, pt1, pt2, (0, 255, 0), 3)
 
             # Put label above the first vertex
-            cv2.putText(img, "broken " + name, (vertices[0][0], vertices[0][1] - 10),
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+            cv2.putText(
+                img,
+                "broken " + name,
+                (vertices[0][0], vertices[0][1] - 10),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                1,
+                (0, 0, 255),
+                2,
+            )
 
             print(f"Detected: {obj['name']} (confidence: {obj['score']:.2f})")
 
@@ -93,12 +94,89 @@ def detect_and_draw(image_path, target_objects, output_path="output.jpg", api_ke
     print(f"Processed image saved at: {output_path}")
 
 
+def detect_and_draw_(image, target_objects, api_key=None):
+
+    image_bytes = io.BytesIO()
+    image.save(
+        image_bytes, format="JPEG"
+    )  # Save the image as JPEG to the BytesIO buffer
+    image_bytes = image_bytes.getvalue()  # Get the bytes-like object
+    encoded_image = base64.b64encode(image_bytes).decode()
+
+    # Prepare the request
+    url = f"https://vision.googleapis.com/v1/images:annotate?key={api_key}"
+
+    request_json = {
+        "requests": [
+            {
+                "image": {"content": encoded_image},
+                "features": [{"type": "OBJECT_LOCALIZATION", "maxResults": 50}],
+            }
+        ]
+    }
+
+    # Make the request
+    response = requests.post(url, json=request_json)
+
+    if response.status_code != 200:
+        raise Exception(f"API request failed: {response.status_code} - {response.text}")
+
+    result = response.json()
+
+    if "error" in result:
+        raise Exception(f"API error: {result['error']}")
+
+    objects = result["responses"][0].get("localizedObjectAnnotations", [])
+
+    # Load image with OpenCV for drawing
+    img = cv2.imread(image_path)
+    h, w, _ = img.shape
+
+    print(f"Found {len(objects)} objects in the image.")
+    print(objects)
+
+    for obj in objects:
+        name = obj["name"].lower()
+        if name in [t.lower() for t in target_objects]:
+            # Get bounding polygon (normalized coordinates → pixel values)
+            bounding_poly = obj["boundingPoly"]["normalizedVertices"]
+            vertices = [(int(v["x"] * w), int(v["y"] * h)) for v in bounding_poly]
+
+            # Draw bounding box
+            for i in range(len(vertices)):
+                pt1 = vertices[i]
+                pt2 = vertices[(i + 1) % len(vertices)]
+                cv2.line(img, pt1, pt2, (0, 255, 0), 3)
+
+            # Put label above the first vertex
+            cv2.putText(
+                img,
+                "broken " + name,
+                (vertices[0][0], vertices[0][1] - 10),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                1,
+                (0, 0, 255),
+                2,
+            )
+
+            print(f"Detected: {obj['name']} (confidence: {obj['score']:.2f})")
+
+    # Save the result
+    return img
+
+
 if __name__ == "__main__":
     # Set your Google Cloud Vision API key here
-    API_KEY = "AIzaSyB6il6QMlg5lOkIqpXIk6abFZfN4Odbvug" # Get from environment variable
+    API_KEY = "AIzaSyB6il6QMlg5lOkIqpXIk6abFZfN4Odbvug"  # Get from environment variable
     if not API_KEY:
         raise ValueError("Please set GOOGLE_CLOUD_API_KEY environment variable")
     image_path = "photos/images.jpg"
-    targets = ["couch", "sofa", "chair", "bathtub","Countertop"]  # Individual items in a list
+    targets = [
+        "couch",
+        "sofa",
+        "chair",
+        "bathtub",
+        "Countertop",
+    ]  # Individual items in a list
 
     detect_and_draw(image_path, targets, "annotated_output.jpg", api_key=API_KEY)

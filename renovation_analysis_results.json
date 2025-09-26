@@ -1,52 +1,65 @@
 {
-  "Community Facilities": [
+  "Ceilings Walls Doors": [
     {
-      "category": "Community Facilities",
+      "category": "Ceilings / Walls / Doors",
       "photo_analysis": {
         "visible_elements": [
-          "Garage Walls",
-          "Cement Plates (Floor)",
-          "Doors"
+          "Textured walls with coating",
+          "Interior doors",
+          "Door frames",
+          "Ceiling with built-in lights",
+          "Built-in cabinets",
+          "Archway"
         ],
         "overall_condition": "good",
-        "condition_details": "The walls and floor appear to be in good condition with minimal visible wear and tear. The doors also seem to be in working order."
+        "condition_details": "The walls appear to be textured and coated with paint. The interior doors and frames are in good condition with no visible damage. The ceiling is clean and well-maintained. Built-in cabinets appear well-fitted and in good condition. The archway is clean and shows no signs of damage."
       },
       "age_assessment": {
         "estimated_years_since_renovation": 5,
         "confidence_level": "medium",
         "aging_indicators": [
-          "Modern concrete finish",
-          "Clean appearance of cement plates",
-          "Minimal staining on walls"
+          "Relatively modern style",
+          "Clean and well-maintained surfaces",
+          "Minimal visible wear and tear"
         ]
       },
       "renovation_prediction": {
-        "years_until_renovation_needed": 25,
+        "years_until_renovation_needed": 10,
         "urgency_level": "low",
         "recommended_actions": [
-          "Regular cleaning of cement plates",
-          "Inspect walls for cracks annually"
+          "Regular cleaning",
+          "Minor touch-up painting as needed"
         ]
       },
       "cost_analysis": {
         "immediate_repairs": {
-          "description": "No immediate repairs needed.",
+          "description": "No immediate repairs needed",
           "estimated_cost_chf": 0,
           "items": []
         },
         "future_renovation": {
-          "description": "Full renovation of cement plates and walls in 25 years.",
-          "estimated_cost_chf": 15000,
+          "description": "Repainting walls and doors, replacing door fittings, and potentially updating built-in cabinets.",
+          "estimated_cost_chf": 3000,
           "items": [
             {
-              "item": "Cement Plates Replacement",
-              "cost": 10000,
-              "unit": "CHF"
+              "item": "Repainting walls (Dispersion)",
+              "cost": 500,
+              "unit": "m²"
             },
             {
-              "item": "Wall Refurbishment",
-              "cost": 5000,
-              "unit": "CHF"
+              "item": "Repainting doors and door frames",
+              "cost": 300,
+              "unit": "m²"
+            },
+            {
+              "item": "Replacing door fittings",
+              "cost": 150,
+              "unit": "piece"
+            },
+            {
+              "item": "Refacing/Replacing Built-in cabinets (Chipboard)",
+              "cost": 2050,
+              "unit": "piece"
             }
           ]
         }
@@ -56,12 +69,12 @@
           "None apparent"
         ],
         "damage_risks": [
-          "Potential for water damage to walls and floor over time if not properly maintained"
+          "Minor wear and tear over time if not maintained"
         ],
         "priority_level": "low"
       },
-      "photo_path": "Categorised_photos/Community Facilities/image_0.jpg",
-      "timestamp": "2025-09-26T20:09:17.186359"
+      "photo_path": "Categorised_photos/Ceilings Walls Doors/image_0.jpg",
+      "timestamp": "2025-09-26T20:45:34.642729"
     }
   ]
 }

@@ -10,6 +10,7 @@ from process_image import analyze_image_
 from real_estate_problem_analyzer import analyze_image_problems
 from image_room_clasify import clasify_image
 from price_analasys import RenovationAnalyzer
+from nano_edit import detect_and_draw_
 
 
 def load_prompt(prompt_file):
@@ -45,6 +46,7 @@ def main():
 
     if uploaded_files:
         # Create a horizontal scrollable container for images
+        # add a button to process the images
 
         st.write("### Uploaded Images")
         images_container = st.container()
@@ -57,6 +59,31 @@ def main():
                 col.image(
                     image, caption=f"{uploaded_file.name}", use_container_width=True
                 )
+
+        if st.button("Detect Anomalies"):
+            st.write("### Anomaly Detection Results")
+            targets = [
+                "couch",
+                "sofa",
+                "chair",
+                "bathtub",
+                "Countertop",
+            ]
+            anomaly_container = st.container()
+            with anomaly_container:
+                cols = st.columns(len(uploaded_files))
+                for col, uploaded_file in zip(cols, uploaded_files):
+                    image = Image.open(uploaded_file)
+                    # downsample image
+                    image = image.resize((512, 512))
+                    output_image_path = f"anomaly_{uploaded_file.name}"
+                    detect_and_draw_(image, target_objects=targets, api_key=api_key)
+                    output_image = Image.open(output_image_path)
+                    col.image(
+                        output_image,
+                        caption=f"Anomalies in {uploaded_file.name}",
+                        use_container_width=True,
+                    )
 
         # Placeholder for processing results
         st.write("### Processing Results")
