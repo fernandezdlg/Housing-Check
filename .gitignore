@@ -15,7 +15,8 @@ captures/
 *.aab
 *.apk
 output-metadata.json
-
+pages
+pages/
 # IntelliJ
 *.iml
 .idea/
