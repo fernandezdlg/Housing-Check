@@ -21,8 +21,8 @@ Based on the analysis produce a grade based on:
     Medium
     Bad
 
-OUTPUT format WITHOUT any json word:
-""
+OUTPUT format SHOULD BE A STRICT JSON
+'
 {
     "facade": "",
     "roof": "",
@@ -34,4 +34,4 @@ OUTPUT format WITHOUT any json word:
     "elevators": "",
     "overall_grade": "",
 }
-""
+'

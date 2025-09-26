@@ -65,11 +65,29 @@ def main():
             # #     ]
             # # )
             # grade = random.randint(1, 10)
-            print()
+            print("CHECKM1")
             print(analysis)
-            print()
-            analysis = json.loads(analysis)
-
+            print("CHECKM2")
+            print(type(analysis))
+            # analysis = json.loads(analysis)
+            if isinstance(analysis, str):
+                # Remove extra quotes and clean the string
+                analysis = analysis.strip()  # Remove leading/trailing whitespace
+                if analysis.startswith("```") and analysis.endswith("```"):
+                    analysis = analysis.strip("```")  # Remove surrounding double quotes
+                try:
+                    analysis = json.loads(
+                        analysis
+                    )  # Parse the JSON string into a dictionary
+                    print("CHECKM3")
+                    print(type(analysis))
+                    print(dict(analysis))
+                    print("CHECKM4")
+                except json.JSONDecodeError as e:
+                    st.error(
+                        f"Failed to parse analysis result for {uploaded_file.name}: {e}"
+                    )
+                    analysis = {}  # Use an empty dictionary if parsing fails
             # transform analysis into a dictionary
             # Append results for the table
             results.append(
