@@ -4,9 +4,12 @@ from PIL import Image
 import random
 import json
 from geopy.geocoders import Nominatim
+import pandas as pd
+
 from process_image import analyze_image_
 from real_estate_problem_analyzer import analyze_image_problems
-import pandas as pd
+from image_room_clasify import clasify_image
+from price_analasys import RenovationAnalyzer
 
 
 def load_prompt(prompt_file):
@@ -16,8 +19,10 @@ def load_prompt(prompt_file):
 
 
 def main():
+
     st.title("Housing Check")
     api_key = os.getenv("GOOGLE_AI_API_KEY")
+    analyzer = RenovationAnalyzer(api_key)
 
     prompt_file = "streamlit-image-uploader/prompt.txt"
     prompt = load_prompt(prompt_file)
@@ -56,14 +61,21 @@ def main():
         # Placeholder for processing results
         st.write("### Processing Results")
         results = []
+        counter = 0
         for uploaded_file in uploaded_files:
             # Simulate processing with random outputs
             image = Image.open(uploaded_file)
             # downsample image
             image = image.resize((512, 512))
 
+            # Clasify the image
+            clasify_image(image, api_key, counter)
+            counter += 1
             analysis = analyze_image_(image, api_key, prompt=prompt)
             problems = analyze_image_problems(image, api_key)
+
+            # big results
+
             # state_of_building = random.choice(["Very Good", "Good", "Medium", "Bad"])
             # # comments = random.choice(
             # #     [
@@ -121,6 +133,28 @@ def main():
 
         # Display the styled DataFrame
         st.dataframe(styled_df, use_container_width=True)
+
+        # Price analysis section
+        print("Starting renovation analysis with Gemini 2.0-flash...")
+        print(f"Found {len(analyzer.category_data)} categories in CSV")
+        print(
+            f"Will analyze folders: {list(analyzer.folder_to_category_mapping.keys())}"
+        )
+
+        # Run analysis
+        results = analyzer.analyze_all_categories()
+
+        # Save results
+        analyzer.save_results(results)
+
+        # Generate and save summary report
+        summary = analyzer.generate_summary_report(results)
+        with open("renovation_analysis_summary.md", "w", encoding="utf-8") as f:
+            f.write(summary)
+
+        print("\nAnalysis complete!")
+        print(f"Results saved to: renovation_analysis_results.json")
+        print(f"Summary report saved to: renovation_analysis_summary.md")
 
     if address:
         st.write("### Property Location on Map")
