@@ -70,7 +70,7 @@ def detect_and_draw(image_path, target_objects, output_path="output.jpg", api_ke
     print(objects)
 
     for obj in objects:
-        name = obj['name'].lower()
+        name =  obj['name'].lower()  
         if name in [t.lower() for t in target_objects]:
             # Get bounding polygon (normalized coordinates → pixel values)
             bounding_poly = obj['boundingPoly']['normalizedVertices']
@@ -83,7 +83,7 @@ def detect_and_draw(image_path, target_objects, output_path="output.jpg", api_ke
                 cv2.line(img, pt1, pt2, (0, 255, 0), 3)
 
             # Put label above the first vertex
-            cv2.putText(img, name, (vertices[0][0], vertices[0][1] - 10),
+            cv2.putText(img, "broken " + name, (vertices[0][0], vertices[0][1] - 10),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
             print(f"Detected: {obj['name']} (confidence: {obj['score']:.2f})")
