@@ -1,10 +1,14 @@
+import os
 import streamlit as st
 from PIL import Image
 import random
 
+from process_image import analyze_image_
+
 
 def main():
     st.title("Housing Check")
+    api_key = os.getenv("GOOGLE_AI_API_KEY")
 
     uploaded_files = st.file_uploader(
         "Choose images...", type=["jpg", "jpeg", "png"], accept_multiple_files=True
@@ -26,13 +30,19 @@ def main():
             cols = st.columns(len(uploaded_files))
             for col, uploaded_file in zip(cols, uploaded_files):
                 image = Image.open(uploaded_file)
-                col.image(image, caption=f"{uploaded_file.name}", use_column_width=True)
+                analysis = analyze_image_(image, api_key)
+                print(analysis)
+                col.image(
+                    image, caption=f"{uploaded_file.name}", use_container_width=True
+                )
 
         # Placeholder for processing results
         st.write("### Processing Results")
         results = []
         for uploaded_file in uploaded_files:
             # Simulate processing with random outputs
+            image = Image.open(uploaded_file)
+            analysis = analyze_image_(image, api_key)
             state_of_building = random.choice(["Very Good", "Good", "Medium", "Bad"])
             comments = random.choice(
                 [
@@ -50,6 +60,7 @@ def main():
                     "State of Building": state_of_building,
                     "Comments": comments,
                     "Replacement Cost per Unit": grade,
+                    "Analysis Results": analysis,
                 }
             )
 
