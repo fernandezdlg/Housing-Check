@@ -9,6 +9,8 @@ local.properties
 *.log
 pages/
 .env
+__pycache__/
+*__pycache__
 
 # Android Studio generated files and folders
 captures/
