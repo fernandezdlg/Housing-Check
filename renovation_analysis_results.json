@@ -1,1 +1,95 @@
+<<<<<<< HEAD
 {}
+=======
+{
+  "Kitchen": [
+    {
+      "category": "Kitchen",
+      "photo_analysis": {
+        "visible_elements": [
+          "Refrigerator with Integrated Freezer Compartment",
+          "Glass Ceramic Cooktop",
+          "Stove and Oven",
+          "Steam Extractor / Fan",
+          "Kitchen Combination Furniture",
+          "Kitchen Countertop",
+          "Wall Panels",
+          "Operating Fittings"
+        ],
+        "overall_condition": "good",
+        "condition_details": "The kitchen appears to be in good condition. The cabinet doors are in good shape. The countertop appears to be well maintained. The appliances look relatively new and clean."
+      },
+      "age_assessment": {
+        "estimated_years_since_renovation": 5,
+        "confidence_level": "medium",
+        "aging_indicators": [
+          "Modern design",
+          "Good condition of cabinets and appliances"
+        ]
+      },
+      "renovation_prediction": {
+        "years_until_renovation_needed": 15,
+        "urgency_level": "low",
+        "recommended_actions": [
+          "Regular cleaning and maintenance",
+          "Monitor appliance performance"
+        ]
+      },
+      "cost_analysis": {
+        "immediate_repairs": {
+          "description": "No immediate repairs are needed.",
+          "estimated_cost_chf": 0,
+          "items": []
+        },
+        "future_renovation": {
+          "description": "Full kitchen renovation in 15 years, including replacement of appliances and potentially the countertop.",
+          "estimated_cost_chf": 7698,
+          "items": [
+            {
+              "item": "Refrigerator with Integrated Freezer Compartment",
+              "cost": 18,
+              "unit": "m²"
+            },
+            {
+              "item": "Glass Ceramic Cooktop",
+              "cost": 2500,
+              "unit": "piece"
+            },
+            {
+              "item": "Stove and Oven",
+              "cost": 1400,
+              "unit": "piece"
+            },
+            {
+              "item": "Steam Extractor / Fan",
+              "cost": 2300,
+              "unit": "piece"
+            },
+            {
+              "item": "Kitchen Countertop",
+              "cost": 1300,
+              "unit": "piece"
+            },
+            {
+              "item": "Operating Fittings",
+              "cost": 1980,
+              "unit": "piece"
+            }
+          ]
+        }
+      },
+      "risk_assessment": {
+        "safety_risks": [
+          "None apparent"
+        ],
+        "damage_risks": [
+          "Potential for water damage around sink and dishwasher (not visible but standard risk)"
+        ],
+        "priority_level": "low"
+      },
+      "photo_path": "Categorised_photos/Kitchen/image_0.jpg",
+      "timestamp": "2025-09-27T08:37:04.575452"
+    }
+  ]
+}
+>>>>>>> 1f6f9e7e8c9d9f9f3865db6e7a0674b4a9b3b3ee

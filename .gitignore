@@ -19,7 +19,8 @@ captures/
 *.aab
 *.apk
 output-metadata.json
-
+renovation_analysis_results.json
+renovation_analysis_summary.md
 # IntelliJ
 *.iml
 .idea/

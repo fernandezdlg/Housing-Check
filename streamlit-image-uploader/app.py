@@ -108,13 +108,14 @@ def build_cost_chart(analysis_json, width=800, bar_height=42):
         return None
 
     df = pd.DataFrame(rows)
+    print("DataFrame for Chart:", df)
 
     # Format CHF in tooltip via calculated field (keeps axis numeric)
     df["cost_chf"] = df["cost"].map(lambda x: f"CHF {int(x):,}".replace(",", "'"))
 
     # Height scales with number of categories
     n_categories = df["category"].nunique()
-    chart_height = max(bar_height * n_categories, bar_height + 10)
+    chart_height = max(60 * 5, 60 + 10)
 
     chart = (
         alt.Chart(df)
