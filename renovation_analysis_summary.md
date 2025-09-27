@@ -1,27 +1,7 @@
 # RENOVATION ANALYSIS SUMMARY REPORT
-Generated on: 2025-09-26 21:07:18
-
-## Bath Shower Wc
-Photos analyzed: 1
-
-### image_1.jpg
-- **Condition**: good
-- **Years since renovation**: 10 (confidence: medium)
-- **Years until renovation**: 20 (urgency: low)
-- **Immediate repair cost**: 0 CHF
-- **Future renovation cost**: 5270 CHF
-
-## Ceilings Walls Doors
-Photos analyzed: 1
-
-### image_0.jpg
-- **Condition**: good
-- **Years since renovation**: 10 (confidence: medium)
-- **Years until renovation**: 10 (urgency: moderate)
-- **Immediate repair cost**: 0 CHF
-- **Future renovation cost**: 8638 CHF
+Generated on: 2025-09-27 09:20:55
 
 ## OVERALL SUMMARY
 - **Total immediate repair costs**: 0 CHF
-- **Total future renovation costs**: 13,908 CHF
-- **Total estimated costs**: 13,908 CHF
+- **Total future renovation costs**: 0 CHF
+- **Total estimated costs**: 0 CHF

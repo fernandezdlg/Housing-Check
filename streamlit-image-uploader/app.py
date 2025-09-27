@@ -1,4 +1,5 @@
 import os
+import openai
 import streamlit as st
 from PIL import Image
 import random
@@ -165,8 +166,53 @@ def main():
     )
 
     if property_description:
-        st.write("#### Your Description:")
-        st.write(property_description)
+        tmp = st.empty()
+
+        with tmp:
+            st.write("#### Processing description 🚀")
+
+        # Analyse property description with LLM
+        client = openai.OpenAI(
+            api_key="XCnfIu5iKUABB6YWUaIGsrwi91yz",  # api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY"),
+            base_url="https://api.swisscom.com/layer/swiss-ai-weeks/apertus-70b/v1",
+        )
+
+        stream = client.chat.completions.create(
+            model="swiss-ai/Apertus-70B",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are the world's best real estate expert. I need you to read the \
+                following description of a property and return me an opinion. \
+                Your response should be concise, and have up to 150 words for potential real estate \
+                buyers or morgage provider, depending on the use case the user is signalizing. \
+                Your answer should be a holistic but very short analysis but also concentrated on \
+                whether renovations might be needed. Note that the very first thing you need to tell \
+                me is the year the building was constructed, and summarize all renovations performed in \
+                the property if the user has included these. STRUCTURE IT WITH BULLET POINTS. "
+                },
+                {"role": "user", "content": property_description},
+            ],
+            stream=True,
+        )
+
+        output_chunks = []
+        for chunk in stream:
+            content = chunk.choices[0].delta.content or ""
+            output_chunks.append(content)
+            print(content, end="", flush=True)
+
+        # Join all chunks into a single string
+        # TODO: Feed back description outputs as a summary
+        description_output = "".join(output_chunks)
+
+        # remove
+        tmp.empty()
+        st.write('#### Description successfully processed with Opertus ✅')
+        st.write(description_output)
+
+
+
 
     st.write("### Property Address")
     address = st.text_input("Enter the property address (street, city, country)")
