@@ -1,37 +1,31 @@
 # RENOVATION ANALYSIS SUMMARY REPORT
-Generated on: 2025-09-27 09:57:25
+Generated on: 2025-09-27 11:52:40
 
-## Bath Shower Wc
-Photos analyzed: 1
+## Kitchen
+Photos analyzed: 3
 
-### image_0.jpg
-- **Condition**: good
-- **Years since renovation**: 15 (confidence: medium)
-- **Years until renovation**: 15 (urgency: low)
+### image_2.jpg
+- **Condition**: excellent
+- **Years since renovation**: 2 (confidence: high)
+- **Years until renovation**: 18 (urgency: low)
 - **Immediate repair cost**: 0 CHF
-- **Future renovation cost**: 2900 CHF
-
-## Community Facilities
-Photos analyzed: 1
+- **Future renovation cost**: 7690 CHF
 
 ### image_1.jpg
 - **Condition**: good
-- **Years since renovation**: 2 (confidence: medium)
-- **Years until renovation**: 13 (urgency: low)
+- **Years since renovation**: 5 (confidence: medium)
+- **Years until renovation**: 15 (urgency: low)
 - **Immediate repair cost**: 0 CHF
-- **Future renovation cost**: 900 CHF
+- **Future renovation cost**: 7700 CHF
 
-## Kitchen
-Photos analyzed: 1
-
-### image_2.jpg
-- **Condition**: good
-- **Years since renovation**: 10 (confidence: medium)
-- **Years until renovation**: 10 (urgency: moderate)
+### image_0.jpg
+- **Condition**: excellent
+- **Years since renovation**: 0 (confidence: high)
+- **Years until renovation**: 20 (urgency: low)
 - **Immediate repair cost**: 0 CHF
-- **Future renovation cost**: 7200 CHF
+- **Future renovation cost**: 9800 CHF
 
 ## OVERALL SUMMARY
 - **Total immediate repair costs**: 0 CHF
-- **Total future renovation costs**: 11,000 CHF
-- **Total estimated costs**: 11,000 CHF
+- **Total future renovation costs**: 25,190 CHF
+- **Total estimated costs**: 25,190 CHF

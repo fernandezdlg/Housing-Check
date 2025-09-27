@@ -150,7 +150,7 @@ def load_prompt(prompt_file):
 
 def main():
 
-    st.title("Housing Check")
+    st.title("HouseEval AI")
     api_key = os.getenv("GOOGLE_AI_API_KEY")
     video_key = os.getenv("GOOGLE_AI_VIDEO_KEY")
     analyzer = RenovationAnalyzer(api_key)
@@ -198,6 +198,12 @@ def main():
                 "chair",
                 "bathtub",
                 "Countertop",
+                "Roof",
+                "roof",
+                "Wall",
+                "wall",
+                "House",
+                "Window",
             ]
             anomaly_container = st.container()
             with anomaly_container:
