@@ -106,97 +106,64 @@
       "category": "Kitchen",
       "photo_analysis": {
         "visible_elements": [
-          "Refrigerator with Integrated Freezer Compartment",
-          "Gas Built-in Stove with Oven",
-          "Microwave",
-          "Kitchen Combination Furniture",
-          "Kitchen Countertop",
-          "Operating Fittings",
-          "Wall Panels",
-          "Sink",
-          "Faucet"
+          "Garage Walls",
+          "Cement Plates (Floor)",
+          "Doors"
         ],
         "overall_condition": "good",
-        "condition_details": "The kitchen appears to be in good condition with well-maintained appliances and surfaces. Some minor wear and tear may be present, but overall the space is functional and aesthetically pleasing."
+        "condition_details": "The walls and floor appear to be in good condition with minimal visible wear and tear. The doors also seem to be in working order."
       },
       "age_assessment": {
         "estimated_years_since_renovation": 10,
         "confidence_level": "medium",
         "aging_indicators": [
-          "Style of cabinets and appliances",
-          "Condition of countertop",
-          "Age of wall panels and tiles"
+          "Modern concrete finish",
+          "Clean appearance of cement plates",
+          "Minimal staining on walls"
         ]
       },
       "renovation_prediction": {
-        "years_until_renovation_needed": 10,
-        "urgency_level": "moderate",
+        "years_until_renovation_needed": 25,
+        "urgency_level": "low",
         "recommended_actions": [
-          "Regular cleaning and maintenance of appliances",
-          "Inspection of plumbing and electrical systems",
-          "Consider updating appliances for energy efficiency"
+          "Regular cleaning of cement plates",
+          "Inspect walls for cracks annually"
         ]
       },
       "cost_analysis": {
         "immediate_repairs": {
-          "description": "No immediate repairs are visibly necessary.",
+          "description": "No immediate repairs needed.",
           "estimated_cost_chf": 0,
           "items": []
         },
         "future_renovation": {
-          "description": "Full kitchen renovation including replacement of appliances and potentially countertops and cabinets.",
-          "estimated_cost_chf": 8638,
+          "description": "Full renovation of cement plates and walls in 25 years.",
+          "estimated_cost_chf": 15000,
           "items": [
             {
-              "item": "Refrigerator with Integrated Freezer Compartment",
-              "cost": 180,
-              "unit": "m²"
+              "item": "Cement Plates Replacement",
+              "cost": 10000,
+              "unit": "CHF"
             },
             {
-              "item": "Gas Built-in Stove with Oven",
-              "cost": 1200,
-              "unit": "piece"
-            },
-            {
-              "item": "Microwave",
-              "cost": 0,
-              "unit": "piece"
-            },
-            {
-              "item": "Kitchen Combination Furniture",
-              "cost": 2200,
-              "unit": "piece"
-            },
-            {
-              "item": "Kitchen Countertop",
-              "cost": 2000,
-              "unit": "piece"
-            },
-            {
-              "item": "Operating Fittings",
-              "cost": 2700,
-              "unit": "piece"
-            },
-            {
-              "item": "Dishwasher",
-              "cost": 358,
-              "unit": "m²"
+              "item": "Wall Refurbishment",
+              "cost": 5000,
+              "unit": "CHF"
             }
           ]
         }
       },
       "risk_assessment": {
         "safety_risks": [
-          "Potential gas leaks from stove if not properly maintained",
-          "Electrical hazards if wiring is outdated"
+          "None apparent"
         ],
         "damage_risks": [
-          "Water damage from leaks in plumbing"
+          "Potential for water damage to walls and floor over time if not properly maintained"
         ],
         "priority_level": "medium"
       },
-      "photo_path": "Categorised_photos\\Kitchen\\image_0.jpg",
-      "timestamp": "2025-09-26T21:07:18.637452"
+      "photo_path": "Categorised_photos/Community Facilities/image_0.jpg",
+      "timestamp": "2025-09-26T20:09:17.186359"
     }
   ]
 }

@@ -5,12 +5,134 @@ import random
 import json
 from geopy.geocoders import Nominatim
 import pandas as pd
+import altair as alt
+
+
 
 from process_image import analyze_image_
 from real_estate_problem_analyzer import analyze_image_problems
 from image_room_clasify import clasify_image
 from price_analasys import RenovationAnalyzer
 from nano_edit import detect_and_draw_
+
+
+
+def extract_cost_rows(analysis_json):
+    """
+    Turns the LLM analysis JSON into tidy rows for plotting.
+    Supports multiple top-level categories, each with a list of entries.
+    """
+    rows = []
+    if not isinstance(analysis_json, dict):
+        return rows
+
+    for category, entries in analysis_json.items():
+        if not isinstance(entries, list):
+            continue
+        for entry in entries:
+            cat = entry.get("category", category)
+            rp = entry.get("renovation_prediction", {}) or {}
+            years_until = rp.get("years_until_renovation_needed")
+            urgency = rp.get("urgency_level")
+
+            cost = (entry.get("cost_analysis") or {})
+            # Immediate repairs (single lump sum + optional items)
+            imm = (cost.get("immediate_repairs") or {})
+            imm_cost = imm.get("estimated_cost_chf", 0) or 0
+            imm_desc = imm.get("description", "Immediate repairs")
+            imm_items = imm.get("items") or []
+            # If items are provided, plot each; else plot the lump sum if > 0
+            if imm_items:
+                for it in imm_items:
+                    rows.append({
+                        "category": cat,
+                        "label": f"Immediate · {it.get('item','Item')}",
+                        "description": imm_desc,
+                        "cost": float(it.get("cost", 0) or 0),
+                        "years_until": 0,
+                        "urgency": "immediate"
+                    })
+            elif imm_cost > 0:
+                rows.append({
+                    "category": cat,
+                    "label": "Immediate · Repairs",
+                    "description": imm_desc,
+                    "cost": float(imm_cost),
+                    "years_until": 0,
+                    "urgency": "immediate"
+                })
+
+            # Future renovation (lump sum + items)
+            fut = (cost.get("future_renovation") or {})
+            fut_desc = fut.get("description", "Future renovation")
+            fut_items = fut.get("items") or []
+            fut_lump = float(fut.get("estimated_cost_chf", 0) or 0)
+
+            # If itemized, prefer item rows (avoid double counting lump sum)
+            if fut_items:
+                for it in fut_items:
+                    rows.append({
+                        "category": cat,
+                        "label": f"Future · {it.get('item','Item')}",
+                        "description": fut_desc,
+                        "cost": float(it.get("cost", 0) or 0),
+                        "years_until": years_until,
+                        "urgency": urgency
+                    })
+            elif fut_lump > 0:
+                rows.append({
+                    "category": cat,
+                    "label": "Future · Renovation",
+                    "description": fut_desc,
+                    "cost": fut_lump,
+                    "years_until": years_until,
+                    "urgency": urgency
+                })
+    return rows
+
+
+def build_cost_chart(analysis_json, width=800, bar_height=42):
+    """
+    Returns an Altair horizontal stacked bar chart with tooltips.
+    One bar per category; segments per cost item.
+    """
+    rows = extract_cost_rows(analysis_json)
+    if not rows:
+        return None
+
+    df = pd.DataFrame(rows)
+
+    # Format CHF in tooltip via calculated field (keeps axis numeric)
+    df["cost_chf"] = df["cost"].map(lambda x: f"CHF {int(x):,}".replace(",", "'"))
+
+    # Height scales with number of categories
+    n_categories = df["category"].nunique()
+    chart_height = max(bar_height * n_categories, bar_height + 10)
+
+    chart = (
+        alt.Chart(df)
+        .mark_bar()
+        .encode(
+            y=alt.Y("category:N", title=None, sort="-x"),
+            x=alt.X("cost:Q", title="Estimated cost (CHF)", stack="zero"),
+            color=alt.Color("label:N", title="Segment"),
+            tooltip=[
+                alt.Tooltip("category:N", title="Category"),
+                alt.Tooltip("label:N", title="Item"),
+                alt.Tooltip("description:N", title="Description"),
+                alt.Tooltip("cost_chf:N", title="Cost"),
+                alt.Tooltip("urgency:N", title="Urgency"),
+                alt.Tooltip("years_until:Q", title="Years until renovation", format=".0f"),
+            ],
+        )
+        .properties(width=width, height=chart_height)
+        .interactive()  # enables hover & legend interactions
+    )
+
+    return chart
+
+
+
 
 
 def load_prompt(prompt_file):
@@ -186,6 +308,21 @@ def main():
         print("\nAnalysis complete!")
         print(f"Results saved to: renovation_analysis_results.json")
         print(f"Summary report saved to: renovation_analysis_summary.md")
+
+
+        # Here the horizontal bar chart for renovation costs is displayed
+        st.write("#### Cost Breakdown (interactive)")
+        with open("/Users/fernandez/Documents/collab_repos/Housing-Check/renovation_analysis_results.json", "r") as f:
+            cost_analysis = json.load(f)
+            chart = build_cost_chart(cost_analysis)
+            
+            # streamlit embed chart box
+            if chart is not None:
+                st.container()
+                st.altair_chart(chart, use_container_width=True)
+            else:
+                st.info("No renovation expected 🤠👍.")
+
 
     if address:
         st.write("### Property Location on Map")
