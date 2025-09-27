@@ -1,269 +1,85 @@
 {
-  "Kitchen": [
+  "Ceilings Walls Doors": [
     {
-      "category": "Kitchen",
+      "category": "Ceilings / Walls / Doors",
       "photo_analysis": {
         "visible_elements": [
-          "Kitchen Combination Furniture",
-          "Kitchen Countertop",
-          "Stove",
-          "Oven",
-          "Operating Fittings",
-          "Refrigerator with Integrated Freezer Compartment",
-          "Wall Panels",
-          "Dishwasher"
+          "Ceiling (coated plaster)",
+          "Walls (coated plaster and wallpaper)",
+          "Door Frame (not visible)",
+          "Built-in Cabinets (chipboard)",
+          "Fittings",
+          "Interior window sills (painted)"
         ],
-        "overall_condition": "excellent",
-        "condition_details": "The kitchen appears to be in excellent condition with modern appliances and well-maintained furniture. The wooden surfaces are clean and undamaged, suggesting a recent renovation or high level of care."
+        "overall_condition": "good",
+        "condition_details": "The ceiling and walls appear to be in good condition with no visible signs of damage. The built-in cabinets also seem to be well-maintained. The wallpaper shows a natural design."
       },
       "age_assessment": {
         "estimated_years_since_renovation": 2,
-        "confidence_level": "high",
-        "aging_indicators": [
-          "Modern design",
-          "Pristine condition of appliances",
-          "Clean wooden surfaces",
-          "Up-to-date appliances"
-        ]
-      },
-      "renovation_prediction": {
-        "years_until_renovation_needed": 18,
-        "urgency_level": "low",
-        "recommended_actions": [
-          "Regular cleaning and maintenance",
-          "Replace seals on appliances as needed",
-          "Monitor for wear and tear on countertop and furniture"
-        ]
-      },
-      "cost_analysis": {
-        "immediate_repairs": {
-          "description": "No immediate repairs are needed.",
-          "estimated_cost_chf": 0,
-          "items": []
-        },
-        "future_renovation": {
-          "description": "Full kitchen renovation will be needed in approximately 18 years. Includes replacement of kitchen furniture, countertop, appliances and operating fittings.",
-          "estimated_cost_chf": 7690,
-          "items": [
-            {
-              "item": "Kitchen Combination Furniture",
-              "cost": 2200,
-              "unit": "piece"
-            },
-            {
-              "item": "Kitchen Countertop",
-              "cost": 3000,
-              "unit": "piece"
-            },
-            {
-              "item": "Stove and Oven",
-              "cost": 1400,
-              "unit": "piece"
-            },
-            {
-              "item": "Dishwasher",
-              "cost": 90,
-              "unit": "piece"
-            },
-            {
-              "item": "Refrigerator with Integrated Freezer Compartment",
-              "cost": 18,
-              "unit": "m²"
-            },
-            {
-              "item": "Operating Fittings",
-              "cost": 2700,
-              "unit": "piece"
-            }
-          ]
-        }
-      },
-      "risk_assessment": {
-        "safety_risks": [
-          "None apparent"
-        ],
-        "damage_risks": [
-          "Minor water damage possible around sink area if not properly sealed"
-        ],
-        "priority_level": "low"
-      },
-      "photo_path": "Categorised_photos/Kitchen/image_2.jpg",
-      "timestamp": "2025-09-27T11:52:29.857596"
-    },
-    {
-      "category": "Kitchen",
-      "photo_analysis": {
-        "visible_elements": [
-          "Kitchen Combination Furniture",
-          "Refrigerator with Integrated Freezer Compartment",
-          "Kitchen Countertop",
-          "Steam Extractor / Fan",
-          "Stove Plates Electric, Conventional",
-          "Operating Fittings",
-          "Wall Panels"
-        ],
-        "overall_condition": "good",
-        "condition_details": "The kitchen appears to be in generally good condition. The wood furniture and countertops look well-maintained. No immediate issues are visible."
-      },
-      "age_assessment": {
-        "estimated_years_since_renovation": 5,
         "confidence_level": "medium",
         "aging_indicators": [
           "Modern design",
-          "Well-maintained wooden features",
-          "Relatively new appliances"
+          "Fresh looking paint",
+          "No visible wear and tear"
         ]
       },
       "renovation_prediction": {
-        "years_until_renovation_needed": 15,
+        "years_until_renovation_needed": 6,
         "urgency_level": "low",
         "recommended_actions": [
-          "Regular cleaning and maintenance of appliances and furniture",
-          "Inspect seals of appliances"
+          "Regular cleaning and maintenance of walls and ceiling",
+          "Check the condition of fittings and locks"
         ]
       },
       "cost_analysis": {
         "immediate_repairs": {
-          "description": "No immediate repairs needed.",
+          "description": "No immediate repairs are necessary.",
           "estimated_cost_chf": 0,
           "items": []
         },
         "future_renovation": {
-          "description": "Full renovation in 15 years, including replacement of kitchen furniture, countertop, appliances, and operating fittings.",
-          "estimated_cost_chf": 7700,
+          "description": "Full renovation including repainting walls and ceiling, replacing wallpaper, and potentially updating built-in cabinets.",
+          "estimated_cost_chf": 1800,
           "items": [
             {
-              "item": "Kitchen Combination Furniture (Simple Version)",
-              "cost": 2200,
-              "unit": "piece"
+              "item": "Coating on Wall and Ceiling Claddings/Plasters (Dispersion paint) - 50 m²",
+              "cost": 500,
+              "unit": "CHF"
             },
             {
-              "item": "Kitchen Countertop (Solid Wood or Multi-Layer Board)",
-              "cost": 1300,
-              "unit": "piece"
+              "item": "Wallpapers (Medium Quality, Textured, Printed or Raw Painted) - 10 m²",
+              "cost": 300,
+              "unit": "CHF"
             },
             {
-              "item": "Refrigerator with Integrated Freezer Compartment (10 m²)",
-              "cost": 180,
-              "unit": "m²"
+              "item": "Built-in Cabinets (Chipboard) - fittings replacement - 10 pieces",
+              "cost": 150,
+              "unit": "CHF"
             },
             {
-              "item": "Steam Extractor / Fan, incl. Metal Filter",
-              "cost": 2300,
-              "unit": "piece"
+              "item": "Painting Work, Cover Floor: with Plastic",
+              "cost": 150,
+              "unit": "CHF"
             },
             {
-              "item": "Stove Plates Electric, Conventional",
-              "cost": 0,
-              "unit": "piece"
-            },
-            {
-              "item": "Operating Fittings",
-              "cost": 2700,
-              "unit": "piece"
+              "item": "Labor (estimate)",
+              "cost": 700,
+              "unit": "CHF"
             }
           ]
         }
       },
       "risk_assessment": {
         "safety_risks": [
-          "None visible."
-        ],
-        "damage_risks": [
-          "Potential water damage near sink if not properly sealed."
-        ],
-        "priority_level": "low"
-      },
-      "photo_path": "Categorised_photos/Kitchen/image_1.jpg",
-      "timestamp": "2025-09-27T11:52:35.109396"
-    },
-    {
-      "category": "Kitchen",
-      "photo_analysis": {
-        "visible_elements": [
-          "Induction Cooktop",
-          "Kitchen Combination Furniture (Solid Wood)",
-          "Kitchen Countertop (Granite)",
-          "Operating Fittings",
-          "Built-in Oven",
-          "Wall Panels (Ceramic Tiles)",
-          "Sink"
-        ],
-        "overall_condition": "excellent",
-        "condition_details": "The kitchen appears to be in excellent condition. The solid wood cabinets look new and well-maintained. The countertop appears clean with no visible damage, and the appliances look modern and functional."
-      },
-      "age_assessment": {
-        "estimated_years_since_renovation": 0,
-        "confidence_level": "high",
-        "aging_indicators": [
-          "Modern appliances",
-          "New looking wooden furniture",
-          "Clean and well-maintained surfaces"
-        ]
-      },
-      "renovation_prediction": {
-        "years_until_renovation_needed": 20,
-        "urgency_level": "low",
-        "recommended_actions": [
-          "Regular cleaning and maintenance of appliances and surfaces",
-          "Check seals of oven periodically"
-        ]
-      },
-      "cost_analysis": {
-        "immediate_repairs": {
-          "description": "No immediate repairs needed.",
-          "estimated_cost_chf": 0,
-          "items": []
-        },
-        "future_renovation": {
-          "description": "Full kitchen renovation in approximately 20 years, including replacement of furniture, countertop, and appliances.",
-          "estimated_cost_chf": 9800,
-          "items": [
-            {
-              "item": "Kitchen Combination Furniture (Solid Wood)",
-              "cost": 2200,
-              "unit": "piece"
-            },
-            {
-              "item": "Kitchen Countertop (Granite)",
-              "cost": 2000,
-              "unit": "piece"
-            },
-            {
-              "item": "Induction Cooktop",
-              "cost": 1300,
-              "unit": "piece"
-            },
-            {
-              "item": "Operating Fittings",
-              "cost": 2700,
-              "unit": "piece"
-            },
-            {
-              "item": "Built-in Oven",
-              "cost": 1400,
-              "unit": "piece"
-            },
-            {
-              "item": "Dishwasher",
-              "cost": 200,
-              "unit": "piece"
-            }
-          ]
-        }
-      },
-      "risk_assessment": {
-        "safety_risks": [
-          "None apparent",
-          "Check electrical safety of cooktop and oven during renovation"
-        ],
-        "damage_risks": [
           "None apparent"
         ],
+        "damage_risks": [
+          "Potential water damage to walls and ceiling from leaks, though not visible"
+        ],
         "priority_level": "low"
       },
-      "photo_path": "Categorised_photos/Kitchen/image_0.jpg",
-      "timestamp": "2025-09-27T11:52:40.050056"
+      "photo_path": "Categorised_photos/Ceilings Walls Doors/image_0.jpg",
+      "timestamp": "2025-09-27T13:58:45.018023"
     }
   ]
 }
