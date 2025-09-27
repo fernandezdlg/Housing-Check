@@ -161,70 +161,22 @@ def main():
     uploaded_files = st.file_uploader(
         "Choose images...", type=["jpg", "jpeg", "png"], accept_multiple_files=True
     )
-    # Section for property description
+
+    st.write("### Uploaded Images")
+    images_container = st.container()
+
+    st.write("### Property Address")
+    address = st.text_input("Enter the property address (street, city, country)")
+
     st.write("### Property Description")
     property_description = st.text_area(
         "Add a description of the property (e.g., location, size, condition, etc.):"
     )
 
-    if property_description:
-        tmp = st.empty()
-
-        with tmp:
-            st.write("#### Processing description 🚀")
-
-        # Analyse property description with LLM
-        client = openai.OpenAI(
-            api_key="XCnfIu5iKUABB6YWUaIGsrwi91yz",  # api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY"),
-            base_url="https://api.swisscom.com/layer/swiss-ai-weeks/apertus-70b/v1",
-        )
-
-        stream = client.chat.completions.create(
-            model="swiss-ai/Apertus-70B",
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are the world's best real estate expert. I need you to read the \
-                following description of a property and return me an opinion. \
-                Your response should be concise, and have up to 150 words for potential real estate \
-                buyers or morgage provider, depending on the use case the user is signalizing. \
-                Your answer should be a holistic but very short analysis but also concentrated on \
-                whether renovations might be needed. Note that the very first thing you need to tell \
-                me is the year the building was constructed, and summarize all renovations performed in \
-                the property if the user has included these. STRUCTURE IT WITH BULLET POINTS. "
-                },
-                {"role": "user", "content": property_description},
-            ],
-            stream=True,
-        )
-
-        output_chunks = []
-        for chunk in stream:
-            content = chunk.choices[0].delta.content or ""
-            output_chunks.append(content)
-            print(content, end="", flush=True)
-
-        # Join all chunks into a single string
-        # TODO: Feed back description outputs as a summary
-        description_output = "".join(output_chunks)
-
-        # remove
-        tmp.empty()
-        st.write('#### Description successfully processed with Opertus ✅')
-        st.write(description_output)
-
-
-
-
-    st.write("### Property Address")
-    address = st.text_input("Enter the property address (street, city, country)")
-
     if uploaded_files:
         # Create a horizontal scrollable container for images
         # add a button to process the images
 
-        st.write("### Uploaded Images")
-        images_container = st.container()
         with images_container:
             cols = st.columns(len(uploaded_files))
             for col, uploaded_file in zip(cols, uploaded_files):
@@ -235,6 +187,9 @@ def main():
                     image, caption=f"{uploaded_file.name}", use_container_width=True
                 )
 
+                # Section for property description
+
+    if address:
         if st.button("Detect Anomalies"):
             st.write("### Anomaly Detection Results")
             targets = [
@@ -264,10 +219,9 @@ def main():
                         use_container_width=True,
                     )
 
-        # Placeholder for processing results
-        st.write("### Processing Results")
         results = []
         counter = 0
+
         for uploaded_file in uploaded_files:
             # Simulate processing with random outputs
             image = Image.open(uploaded_file)
@@ -362,6 +316,51 @@ def main():
         print(f"Results saved to: renovation_analysis_results.json")
         print(f"Summary report saved to: renovation_analysis_summary.md")
 
+        if property_description:
+            tmp = st.empty()
+
+            with tmp:
+                st.write("#### Processing description 🚀")
+
+            # Analyse property description with LLM
+            client = openai.OpenAI(
+                api_key="XCnfIu5iKUABB6YWUaIGsrwi91yz",  # api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY"),
+                base_url="https://api.swisscom.com/layer/swiss-ai-weeks/apertus-70b/v1",
+            )
+
+            stream = client.chat.completions.create(
+                model="swiss-ai/Apertus-70B",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are the world's best real estate expert. I need you to read the \
+                    following description of a property and return me an opinion. \
+                    Your response should be concise, and have up to 150 words for potential real estate \
+                    buyers or morgage provider, depending on the use case the user is signalizing. \
+                    Your answer should be a holistic but very short analysis but also concentrated on \
+                    whether renovations might be needed. Note that the very first thing you need to tell \
+                    me is the year the building was constructed, and summarize all renovations performed in \
+                    the property if the user has included these. STRUCTURE IT WITH BULLET POINTS. ANSWER ONLY IN ENGLISH, 200 WORDS ABSOLUTE MAX!",
+                    },
+                    {"role": "user", "content": property_description},
+                ],
+                stream=True,
+            )
+
+            output_chunks = []
+            for chunk in stream:
+                content = chunk.choices[0].delta.content or ""
+                output_chunks.append(content)
+                print(content, end="", flush=True)
+
+            # Join all chunks into a single string
+            # TODO: Feed back description outputs as a summary
+            description_output = "".join(output_chunks)
+
+            # remove
+            tmp.empty()
+            st.write("#### Description successfully processed with Apertus ✅")
+            st.write(description_output)
         # Here the horizontal bar chart for renovation costs is displayed
         st.write("#### Cost Breakdown (interactive)")
 
@@ -385,17 +384,17 @@ def main():
 
             for item in items:
                 # Display Photo Analysis
-                with st.expander("Photo Analysis", expanded=True):
-                    st.write("**Visible Elements:**")
-                    st.write(", ".join(item["photo_analysis"]["visible_elements"]))
-                    st.write(
-                        "**Overall Condition:**",
-                        item["photo_analysis"]["overall_condition"],
-                    )
-                    st.write(
-                        "**Condition Details:**",
-                        item["photo_analysis"]["condition_details"],
-                    )
+                # with st.expander("Photo Analysis", expanded=True):
+                #     st.write("**Visible Elements:**")
+                #     st.write(", ".join(item["photo_analysis"]["visible_elements"]))
+                #     st.write(
+                #         "**Overall Condition:**",
+                #         item["photo_analysis"]["overall_condition"],
+                #     )
+                #     st.write(
+                #         "**Condition Details:**",
+                #         item["photo_analysis"]["condition_details"],
+                #     )
 
                 # Display Age Assessment
                 with st.expander("Age Assessment", expanded=True):
@@ -432,7 +431,8 @@ def main():
                     st.write("**Damage Risks:**")
                     st.write(", ".join(item["risk_assessment"]["damage_risks"]))
                     st.write(
-                        "**Priority Level:**", item["risk_assessment"]["priority_level"]
+                        "**Priority Level:**",
+                        item["risk_assessment"]["priority_level"],
                     )
 
     if address:

@@ -1,39 +1,38 @@
-<<<<<<< HEAD
-{}
-=======
 {
   "Bath Shower Wc": [
     {
       "category": "Bath / Shower / WC",
       "photo_analysis": {
         "visible_elements": [
-          "Sink",
-          "Mixer Tap",
-          "Mirror Cabinet",
-          "Ceramic Wall Tiles",
-          "Ceramic Floor Tiles",
-          "Toilet",
-          "Surface-Mounted Flush Tank"
+          "Ceramic sink",
+          "Mixer tap",
+          "Mirror cabinet",
+          "Ceramic tiles",
+          "Surface-mounted plastic flush tank",
+          "Ceramic toilet",
+          "Soap dish holder",
+          "Black floor tiles"
         ],
         "overall_condition": "good",
-        "condition_details": "The bathroom appears to be in good condition with clean fixtures and well-maintained tiles. No visible signs of damage or significant wear and tear."
+        "condition_details": "The bathroom appears to be in generally good condition. The tiles and fixtures look clean and well-maintained, but the style suggests a slightly older renovation."
       },
       "age_assessment": {
-        "estimated_years_since_renovation": 10,
+        "estimated_years_since_renovation": 15,
         "confidence_level": "medium",
         "aging_indicators": [
-          "Style of the toilet and sink",
-          "Type of wall tiles",
-          "Condition of the grout"
+          "Style of tiles",
+          "Type of flush tank",
+          "Design of the sink and faucet",
+          "Mirror cabinet style"
         ]
       },
       "renovation_prediction": {
-        "years_until_renovation_needed": 20,
+        "years_until_renovation_needed": 15,
         "urgency_level": "low",
         "recommended_actions": [
-          "Regular cleaning and maintenance of fixtures",
-          "Monitor grout for deterioration",
-          "Check for leaks around sink and toilet"
+          "Monitor grout and sealant condition",
+          "Inspect plumbing for leaks",
+          "Consider updating fixtures for aesthetic reasons"
         ]
       },
       "cost_analysis": {
@@ -43,27 +42,37 @@
           "items": []
         },
         "future_renovation": {
-          "description": "Full bathroom renovation including replacing the sink, toilet, tiles, and mirror cabinet.",
-          "estimated_cost_chf": 2300,
+          "description": "Full bathroom renovation including replacing the sink, toilet, mirror cabinet, and tiles.",
+          "estimated_cost_chf": 2900,
           "items": [
             {
-              "item": "Sink/WC",
+              "item": "Ceramic Sink",
               "cost": 700,
               "unit": "piece"
             },
             {
-              "item": "Surface-Mounted Flush Tank",
-              "cost": 400,
+              "item": "Mixer Tap",
+              "cost": 200,
               "unit": "piece"
             },
             {
-              "item": "Wall Panels (tiles)",
-              "cost": 1500,
-              "unit": "piece"
-            },
-            {
-              "item": "Mirror Cabinets",
+              "item": "Mirror Cabinet (Wood Material)",
               "cost": 500,
+              "unit": "piece"
+            },
+            {
+              "item": "Surface-mounted plastic flush tank",
+              "cost": 0,
+              "unit": "piece"
+            },
+            {
+              "item": "Ceramic toilet",
+              "cost": 0,
+              "unit": "piece"
+            },
+            {
+              "item": "Wall Panels: Ceramic Tiles, Glazed",
+              "cost": 1500,
               "unit": "piece"
             }
           ]
@@ -74,12 +83,12 @@
           "Slippery floor when wet"
         ],
         "damage_risks": [
-          "Potential for water damage from leaks"
+          "Potential for water damage from leaks in plumbing or grout"
         ],
         "priority_level": "low"
       },
-      "photo_path": "Categorised_photos/Bath Shower Wc/image_3.jpg",
-      "timestamp": "2025-09-27T09:32:14.125962"
+      "photo_path": "Categorised_photos/Bath Shower Wc/image_0.jpg",
+      "timestamp": "2025-09-27T09:57:16.497066"
     }
   ],
   "Community Facilities": [
@@ -87,40 +96,39 @@
       "category": "Community Facilities",
       "photo_analysis": {
         "visible_elements": [
-          "Fence: Metal Posts with Wood Stakes or Similar, Wood Impregnated"
+          "Wood Impregnated Fences"
         ],
         "overall_condition": "good",
-        "condition_details": "The wooden fences appear to be in good condition with no visible signs of significant damage or wear. The wood looks clean and well-maintained."
+        "condition_details": "The wood fences appear to be in good condition, with no visible signs of significant wear or damage. The wood looks relatively new and well-maintained."
       },
       "age_assessment": {
         "estimated_years_since_renovation": 2,
-        "confidence_level": "high",
+        "confidence_level": "medium",
         "aging_indicators": [
-          "Clean wood",
-          "Lack of weathering",
-          "No visible damage"
+          "Clean wood surface",
+          "Minimal signs of weathering"
         ]
       },
       "renovation_prediction": {
         "years_until_renovation_needed": 13,
         "urgency_level": "low",
         "recommended_actions": [
-          "Regular inspection for wood rot or insect infestation",
-          "Application of wood preservative every 3-5 years"
+          "Regular inspection for wood rot",
+          "Periodic treatment with wood preservative"
         ]
       },
       "cost_analysis": {
         "immediate_repairs": {
-          "description": "No immediate repairs needed",
+          "description": "No immediate repairs needed.",
           "estimated_cost_chf": 0,
           "items": []
         },
         "future_renovation": {
-          "description": "Replacement of wood stakes when lifespan is reached",
-          "estimated_cost_chf": 300,
+          "description": "Replacement of wood fences after lifespan.",
+          "estimated_cost_chf": 900,
           "items": [
             {
-              "item": "Fence: Metal Posts with Wood Stakes or Similar, Wood Impregnated",
+              "item": "Metal Posts with Wood Stakes",
               "cost": 300,
               "unit": "piece"
             }
@@ -132,74 +140,12 @@
           "None apparent"
         ],
         "damage_risks": [
-          "Potential for wood rot or insect damage if not maintained"
-        ],
-        "priority_level": "low"
-      },
-      "photo_path": "Categorised_photos/Community Facilities/image_2.jpg",
-      "timestamp": "2025-09-27T09:32:17.316505"
-    },
-    {
-      "category": "Community Facilities",
-      "photo_analysis": {
-        "visible_elements": [
-          "Cement Plates (Access Paths)",
-          "Garden Walls (Garage Walls, Retaining Walls, Solid)"
-        ],
-        "overall_condition": "good",
-        "condition_details": "The concrete floor and walls appear to be in good condition with minimal visible wear and tear. There are no visible cracks or significant damage."
-      },
-      "age_assessment": {
-        "estimated_years_since_renovation": 5,
-        "confidence_level": "medium",
-        "aging_indicators": [
-          "Relatively clean and well-maintained appearance of the concrete surfaces.",
-          "Modern lighting fixtures suggest a recent update."
-        ]
-      },
-      "renovation_prediction": {
-        "years_until_renovation_needed": 25,
-        "urgency_level": "low",
-        "recommended_actions": [
-          "Regular cleaning and inspection of the concrete surfaces.",
-          "Address any minor cracks or damage promptly to prevent further deterioration."
-        ]
-      },
-      "cost_analysis": {
-        "immediate_repairs": {
-          "description": "No immediate repairs are necessary.",
-          "estimated_cost_chf": 0,
-          "items": []
-        },
-        "future_renovation": {
-          "description": "Full renovation in 25 years, including potential resurfacing of concrete floor and wall repair.",
-          "estimated_cost_chf": 5000,
-          "items": [
-            {
-              "item": "Concrete floor resurfacing",
-              "cost": 3000,
-              "unit": "CHF"
-            },
-            {
-              "item": "Wall repair and painting",
-              "cost": 2000,
-              "unit": "CHF"
-            }
-          ]
-        }
-      },
-      "risk_assessment": {
-        "safety_risks": [
-          "None apparent"
-        ],
-        "damage_risks": [
-          "Potential for minor cracking and spalling of concrete over time due to moisture or wear.",
-          "Surface wear from vehicle and foot traffic."
+          "Potential for wood rot due to moisture"
         ],
         "priority_level": "low"
       },
       "photo_path": "Categorised_photos/Community Facilities/image_1.jpg",
-      "timestamp": "2025-09-27T09:32:21.292098"
+      "timestamp": "2025-09-27T09:57:20.085780"
     }
   ],
   "Kitchen": [
@@ -215,44 +161,43 @@
           "Operating Fittings",
           "Wall Panels (Ceramic Tiles, Glazed)",
           "Sink",
-          "Faucet",
-          "Ventilation Grille Bottom"
+          "Faucet"
         ],
         "overall_condition": "good",
-        "condition_details": "The kitchen appears to be in good condition. The appliances seem functional, and the cabinets and countertops are well-maintained. There might be minor wear and tear, but no major visible issues."
+        "condition_details": "The kitchen appears to be in good condition with no immediately visible damage. The appliances look well-maintained, and the cabinetry seems sturdy."
       },
       "age_assessment": {
         "estimated_years_since_renovation": 10,
         "confidence_level": "medium",
         "aging_indicators": [
-          "Style of cabinets and appliances.",
-          "Wear and tear on countertops",
-          "Appearance of wall panels"
+          "Style of cabinetry",
+          "Appliance models",
+          "Condition of countertops"
         ]
       },
       "renovation_prediction": {
         "years_until_renovation_needed": 10,
         "urgency_level": "moderate",
         "recommended_actions": [
-          "Monitor appliance performance",
-          "Check for wear on countertops and cabinets",
-          "Consider updating appliances for energy efficiency"
+          "Regular cleaning and maintenance of appliances and surfaces",
+          "Inspect and repair any minor damages to cabinetry or countertops",
+          "Consider upgrading appliances for better energy efficiency"
         ]
       },
       "cost_analysis": {
         "immediate_repairs": {
-          "description": "No immediate repairs are apparent.",
+          "description": "No immediate repairs needed.",
           "estimated_cost_chf": 0,
           "items": []
         },
         "future_renovation": {
-          "description": "Full kitchen renovation including appliance replacement, cabinet upgrade, and countertop replacement in 10 years.",
-          "estimated_cost_chf": 8780,
+          "description": "Full kitchen renovation in approximately 10 years, including replacement of appliances and possibly cabinetry and countertops.",
+          "estimated_cost_chf": 7200,
           "items": [
             {
               "item": "Refrigerator with Integrated Freezer Compartment",
-              "cost": 1800,
-              "unit": "piece"
+              "cost": 324,
+              "unit": "m² (18 * 18m²)"
             },
             {
               "item": "Gas Built-in Stove with Oven",
@@ -260,7 +205,12 @@
               "unit": "piece"
             },
             {
-              "item": "Kitchen Combination Furniture",
+              "item": "Microwave",
+              "cost": 0,
+              "unit": "piece"
+            },
+            {
+              "item": "Kitchen Combination Furniture (Chipboard, Coated, Laminated or MDF Sprayed)",
               "cost": 2200,
               "unit": "piece"
             },
@@ -270,8 +220,13 @@
               "unit": "piece"
             },
             {
-              "item": "Steam Extractor / Fan, incl. Metal Filter",
-              "cost": 1580,
+              "item": "Operating Fittings",
+              "cost": 276,
+              "unit": "piece"
+            },
+            {
+              "item": "Steam Extractor / Fan",
+              "cost": 2300,
               "unit": "piece"
             }
           ]
@@ -279,17 +234,15 @@
       },
       "risk_assessment": {
         "safety_risks": [
-          "None immediately apparent"
+          "None apparent"
         ],
         "damage_risks": [
-          "Potential water damage from leaking sink or dishwasher (unseen)",
-          "Appliance failure"
+          "Potential for wear and tear over time, requiring eventual replacement of components"
         ],
         "priority_level": "low"
       },
-      "photo_path": "Categorised_photos/Kitchen/image_0.jpg",
-      "timestamp": "2025-09-27T09:32:27.059490"
+      "photo_path": "Categorised_photos/Kitchen/image_2.jpg",
+      "timestamp": "2025-09-27T09:57:25.528051"
     }
   ]
 }
->>>>>>> 1f6f9e7e8c9d9f9f3865db6e7a0674b4a9b3b3ee

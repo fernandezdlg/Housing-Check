@@ -1,22 +1,25 @@
-Überblick Immobilie
-Immobilie Adresse Parzellennummer Baujahr Stockwerk
-Anzahl Zimmer Anzahl Nasszellen
-Nebenräume
-Aussenraum Nettowohnfläche Wertquote Nebenkosten
-(Ø der Jahre 2021 – 2023)
-Erneuerungsfonds (Stand 30.06.2023)
-Eigentumswohnung
+Property | Address | Parcel number | Year of construction | Floor
+Number of rooms | Number of wet rooms
+Ancillary rooms
+Outdoor area | Net living area | Value quota | Service charges (Ø of the years 2021–2023)
+Renovation fund (as of 30.06.2023)
+Condominium
 Zihlstrasse 23, 8340 Hinwil ZH
 7166
 2002
-1. Obergeschoss
-5.5
-1 x Badezimmer mit Badewanne, Dusche, WC, Lavabo, Tageslichtfenster, Spiegel- und Unterbauschrank 1 x Gäste-WC mit Lavabo und Spiegelschrank
-• Reduit in der Wohnung
-• Keller zur Alleinbenutzung im Untergeschoss
-• Waschküche sowie Veloabstellfläche in der Tiefgarage zur Mitbenutzung
-grosszügiger Balkon (ca. 12 m2)
-ca. 124 m2
-Wohnung: 68 / 1'000 Einstellplatz: 1 / 28
-ca. 700 CHF / Monat (inkl. Zahlungen in den Erneuerungsfonds)
-Tiefgarage ca. 21'000 CHF Mehrfamilienhaus (Nr. 23 + 25) ca. 194'000 CHF
+1st floor
+5.5 rooms
+1 x bathroom with bathtub, shower, WC, washbasin, window with daylight, mirror cabinet and under-sink cabinet
+1 x guest WC with washbasin and mirror cabinet
+Ancillary rooms
+Storage room (inside the apartment)
+Private cellar in the basement
+Shared laundry room and bicycle parking in the underground garage
+Outdoor area
+Spacious balcony (approx. 12 m²)
+Net living area: approx. 124 m²
+Value quota: Apartment: 68 / 1,000 | Parking space: 1 / 28
+Service charges: approx. 700 CHF / month (including contributions to the renovation fund)
+Renovation fund (as of 30.06.2023):
+Underground garage: approx. 21,000 CHF
+Apartment building (No. 23 + 25): approx. 194,000 CHF
