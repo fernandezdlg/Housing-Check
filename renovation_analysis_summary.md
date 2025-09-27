@@ -11,7 +11,7 @@ Photos analyzed: 1
 - **Immediate repair cost**: 0 CHF
 - **Future renovation cost**: 5270 CHF
 
-## Kitchen
+## Ceilings Walls Doors
 Photos analyzed: 1
 
 ### image_0.jpg
