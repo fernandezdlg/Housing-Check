@@ -1,75 +1,124 @@
 {
-  "Kitchen": [
+  "Bath Shower Wc": [
     {
-      "category": "Kitchen",
+      "category": "Bath / Shower / WC",
       "photo_analysis": {
         "visible_elements": [
-          "Refrigerator with Integrated Freezer Compartment",
-          "Glass Ceramic Cooktop",
-          "Stove and Oven",
-          "Steam Extractor / Fan",
-          "Kitchen Combination Furniture",
-          "Kitchen Countertop",
-          "Wall Panels",
-          "Operating Fittings"
+          "Sink",
+          "Mixer Tap",
+          "Mirror Cabinet",
+          "Ceramic Wall Tiles",
+          "Ceramic Floor Tiles",
+          "Toilet",
+          "Surface-Mounted Flush Tank"
         ],
         "overall_condition": "good",
-        "condition_details": "The kitchen appears to be in good condition. The cabinet doors are in good shape. The countertop appears to be well maintained. The appliances look relatively new and clean."
+        "condition_details": "The bathroom appears to be in good condition with clean fixtures and well-maintained tiles. No visible signs of damage or significant wear and tear."
       },
       "age_assessment": {
-        "estimated_years_since_renovation": 5,
+        "estimated_years_since_renovation": 10,
         "confidence_level": "medium",
         "aging_indicators": [
-          "Modern design",
-          "Good condition of cabinets and appliances"
+          "Style of the toilet and sink",
+          "Type of wall tiles",
+          "Condition of the grout"
         ]
       },
       "renovation_prediction": {
-        "years_until_renovation_needed": 15,
+        "years_until_renovation_needed": 20,
         "urgency_level": "low",
         "recommended_actions": [
-          "Regular cleaning and maintenance",
-          "Monitor appliance performance"
+          "Regular cleaning and maintenance of fixtures",
+          "Monitor grout for deterioration",
+          "Check for leaks around sink and toilet"
         ]
       },
       "cost_analysis": {
         "immediate_repairs": {
-          "description": "No immediate repairs are needed.",
+          "description": "No immediate repairs needed.",
           "estimated_cost_chf": 0,
           "items": []
         },
         "future_renovation": {
-          "description": "Full kitchen renovation in 15 years, including replacement of appliances and potentially the countertop.",
-          "estimated_cost_chf": 7698,
+          "description": "Full bathroom renovation including replacing the sink, toilet, tiles, and mirror cabinet.",
+          "estimated_cost_chf": 2300,
           "items": [
             {
-              "item": "Refrigerator with Integrated Freezer Compartment",
-              "cost": 18,
-              "unit": "m²"
-            },
-            {
-              "item": "Glass Ceramic Cooktop",
-              "cost": 2500,
+              "item": "Sink/WC",
+              "cost": 700,
               "unit": "piece"
             },
             {
-              "item": "Stove and Oven",
-              "cost": 1400,
+              "item": "Surface-Mounted Flush Tank",
+              "cost": 400,
               "unit": "piece"
             },
             {
-              "item": "Steam Extractor / Fan",
-              "cost": 2300,
+              "item": "Wall Panels (tiles)",
+              "cost": 1500,
               "unit": "piece"
             },
             {
-              "item": "Kitchen Countertop",
-              "cost": 1300,
+              "item": "Mirror Cabinets",
+              "cost": 500,
               "unit": "piece"
-            },
+            }
+          ]
+        }
+      },
+      "risk_assessment": {
+        "safety_risks": [
+          "Slippery floor when wet"
+        ],
+        "damage_risks": [
+          "Potential for water damage from leaks"
+        ],
+        "priority_level": "low"
+      },
+      "photo_path": "Categorised_photos/Bath Shower Wc/image_3.jpg",
+      "timestamp": "2025-09-27T09:32:14.125962"
+    }
+  ],
+  "Community Facilities": [
+    {
+      "category": "Community Facilities",
+      "photo_analysis": {
+        "visible_elements": [
+          "Fence: Metal Posts with Wood Stakes or Similar, Wood Impregnated"
+        ],
+        "overall_condition": "good",
+        "condition_details": "The wooden fences appear to be in good condition with no visible signs of significant damage or wear. The wood looks clean and well-maintained."
+      },
+      "age_assessment": {
+        "estimated_years_since_renovation": 2,
+        "confidence_level": "high",
+        "aging_indicators": [
+          "Clean wood",
+          "Lack of weathering",
+          "No visible damage"
+        ]
+      },
+      "renovation_prediction": {
+        "years_until_renovation_needed": 13,
+        "urgency_level": "low",
+        "recommended_actions": [
+          "Regular inspection for wood rot or insect infestation",
+          "Application of wood preservative every 3-5 years"
+        ]
+      },
+      "cost_analysis": {
+        "immediate_repairs": {
+          "description": "No immediate repairs needed",
+          "estimated_cost_chf": 0,
+          "items": []
+        },
+        "future_renovation": {
+          "description": "Replacement of wood stakes when lifespan is reached",
+          "estimated_cost_chf": 300,
+          "items": [
             {
-              "item": "Operating Fittings",
-              "cost": 1980,
+              "item": "Fence: Metal Posts with Wood Stakes or Similar, Wood Impregnated",
+              "cost": 300,
               "unit": "piece"
             }
           ]
@@ -80,12 +129,163 @@
           "None apparent"
         ],
         "damage_risks": [
-          "Potential for water damage around sink and dishwasher (not visible but standard risk)"
+          "Potential for wood rot or insect damage if not maintained"
+        ],
+        "priority_level": "low"
+      },
+      "photo_path": "Categorised_photos/Community Facilities/image_2.jpg",
+      "timestamp": "2025-09-27T09:32:17.316505"
+    },
+    {
+      "category": "Community Facilities",
+      "photo_analysis": {
+        "visible_elements": [
+          "Cement Plates (Access Paths)",
+          "Garden Walls (Garage Walls, Retaining Walls, Solid)"
+        ],
+        "overall_condition": "good",
+        "condition_details": "The concrete floor and walls appear to be in good condition with minimal visible wear and tear. There are no visible cracks or significant damage."
+      },
+      "age_assessment": {
+        "estimated_years_since_renovation": 5,
+        "confidence_level": "medium",
+        "aging_indicators": [
+          "Relatively clean and well-maintained appearance of the concrete surfaces.",
+          "Modern lighting fixtures suggest a recent update."
+        ]
+      },
+      "renovation_prediction": {
+        "years_until_renovation_needed": 25,
+        "urgency_level": "low",
+        "recommended_actions": [
+          "Regular cleaning and inspection of the concrete surfaces.",
+          "Address any minor cracks or damage promptly to prevent further deterioration."
+        ]
+      },
+      "cost_analysis": {
+        "immediate_repairs": {
+          "description": "No immediate repairs are necessary.",
+          "estimated_cost_chf": 0,
+          "items": []
+        },
+        "future_renovation": {
+          "description": "Full renovation in 25 years, including potential resurfacing of concrete floor and wall repair.",
+          "estimated_cost_chf": 5000,
+          "items": [
+            {
+              "item": "Concrete floor resurfacing",
+              "cost": 3000,
+              "unit": "CHF"
+            },
+            {
+              "item": "Wall repair and painting",
+              "cost": 2000,
+              "unit": "CHF"
+            }
+          ]
+        }
+      },
+      "risk_assessment": {
+        "safety_risks": [
+          "None apparent"
+        ],
+        "damage_risks": [
+          "Potential for minor cracking and spalling of concrete over time due to moisture or wear.",
+          "Surface wear from vehicle and foot traffic."
+        ],
+        "priority_level": "low"
+      },
+      "photo_path": "Categorised_photos/Community Facilities/image_1.jpg",
+      "timestamp": "2025-09-27T09:32:21.292098"
+    }
+  ],
+  "Kitchen": [
+    {
+      "category": "Kitchen",
+      "photo_analysis": {
+        "visible_elements": [
+          "Refrigerator with Integrated Freezer Compartment",
+          "Gas Built-in Stove with Oven",
+          "Microwave",
+          "Kitchen Combination Furniture (Chipboard, Coated, Laminated or MDF Sprayed)",
+          "Kitchen Countertop (Granite)",
+          "Operating Fittings",
+          "Wall Panels (Ceramic Tiles, Glazed)",
+          "Sink",
+          "Faucet",
+          "Ventilation Grille Bottom"
+        ],
+        "overall_condition": "good",
+        "condition_details": "The kitchen appears to be in good condition. The appliances seem functional, and the cabinets and countertops are well-maintained. There might be minor wear and tear, but no major visible issues."
+      },
+      "age_assessment": {
+        "estimated_years_since_renovation": 10,
+        "confidence_level": "medium",
+        "aging_indicators": [
+          "Style of cabinets and appliances.",
+          "Wear and tear on countertops",
+          "Appearance of wall panels"
+        ]
+      },
+      "renovation_prediction": {
+        "years_until_renovation_needed": 10,
+        "urgency_level": "moderate",
+        "recommended_actions": [
+          "Monitor appliance performance",
+          "Check for wear on countertops and cabinets",
+          "Consider updating appliances for energy efficiency"
+        ]
+      },
+      "cost_analysis": {
+        "immediate_repairs": {
+          "description": "No immediate repairs are apparent.",
+          "estimated_cost_chf": 0,
+          "items": []
+        },
+        "future_renovation": {
+          "description": "Full kitchen renovation including appliance replacement, cabinet upgrade, and countertop replacement in 10 years.",
+          "estimated_cost_chf": 8780,
+          "items": [
+            {
+              "item": "Refrigerator with Integrated Freezer Compartment",
+              "cost": 1800,
+              "unit": "piece"
+            },
+            {
+              "item": "Gas Built-in Stove with Oven",
+              "cost": 1200,
+              "unit": "piece"
+            },
+            {
+              "item": "Kitchen Combination Furniture",
+              "cost": 2200,
+              "unit": "piece"
+            },
+            {
+              "item": "Kitchen Countertop (Granite)",
+              "cost": 2000,
+              "unit": "piece"
+            },
+            {
+              "item": "Steam Extractor / Fan, incl. Metal Filter",
+              "cost": 1580,
+              "unit": "piece"
+            }
+          ]
+        }
+      },
+      "risk_assessment": {
+        "safety_risks": [
+          "None immediately apparent"
+        ],
+        "damage_risks": [
+          "Potential water damage from leaking sink or dishwasher (unseen)",
+          "Appliance failure"
         ],
         "priority_level": "low"
       },
       "photo_path": "Categorised_photos/Kitchen/image_0.jpg",
-      "timestamp": "2025-09-27T08:37:04.575452"
+      "timestamp": "2025-09-27T09:32:27.059490"
     }
   ]
 }

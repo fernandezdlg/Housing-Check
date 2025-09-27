@@ -151,6 +151,7 @@ def main():
 
     st.title("Housing Check")
     api_key = os.getenv("GOOGLE_AI_API_KEY")
+    video_key = os.getenv("GOOGLE_AI_VIDEO_KEY")
     analyzer = RenovationAnalyzer(api_key)
 
     prompt_file = "streamlit-image-uploader/prompt.txt"
@@ -206,7 +207,7 @@ def main():
                     image = image.resize((512, 512))
                     output_image_path = f"anomaly_{uploaded_file.name}"
                     img = detect_and_draw_(
-                        image, target_objects=targets, api_key=api_key
+                        image, target_objects=targets, api_key=video_key
                     )
                     # Transform from cv2 to PIL
                     output_im = Image.fromarray(img)
@@ -331,6 +332,62 @@ def main():
                 st.altair_chart(chart, use_container_width=True)
             else:
                 st.info("No renovation expected 🤠👍.")
+
+        # Iterate through the categories in the JSON
+        for category, items in cost_analysis.items():
+            st.write(f"## {category}")  # Display the category name (e.g., "Kitchen")
+
+            for item in items:
+                # Display Photo Analysis
+                with st.expander("Photo Analysis", expanded=True):
+                    st.write("**Visible Elements:**")
+                    st.write(", ".join(item["photo_analysis"]["visible_elements"]))
+                    st.write(
+                        "**Overall Condition:**",
+                        item["photo_analysis"]["overall_condition"],
+                    )
+                    st.write(
+                        "**Condition Details:**",
+                        item["photo_analysis"]["condition_details"],
+                    )
+
+                # Display Age Assessment
+                with st.expander("Age Assessment", expanded=True):
+                    st.write(
+                        "**Estimated Years Since Renovation:**",
+                        item["age_assessment"]["estimated_years_since_renovation"],
+                    )
+                    st.write(
+                        "**Confidence Level:**",
+                        item["age_assessment"]["confidence_level"],
+                    )
+                    st.write("**Aging Indicators:**")
+                    st.write(", ".join(item["age_assessment"]["aging_indicators"]))
+
+                # Display Renovation Prediction
+                with st.expander("Renovation Prediction", expanded=True):
+                    st.write(
+                        "**Years Until Renovation Needed:**",
+                        item["renovation_prediction"]["years_until_renovation_needed"],
+                    )
+                    st.write(
+                        "**Urgency Level:**",
+                        item["renovation_prediction"]["urgency_level"],
+                    )
+                    st.write("**Recommended Actions:**")
+                    st.write(
+                        ", ".join(item["renovation_prediction"]["recommended_actions"])
+                    )
+
+                # Display Risk Assessment
+                with st.expander("Risk Assessment", expanded=True):
+                    st.write("**Safety Risks:**")
+                    st.write(", ".join(item["risk_assessment"]["safety_risks"]))
+                    st.write("**Damage Risks:**")
+                    st.write(", ".join(item["risk_assessment"]["damage_risks"]))
+                    st.write(
+                        "**Priority Level:**", item["risk_assessment"]["priority_level"]
+                    )
 
     if address:
         st.write("### Property Location on Map")
