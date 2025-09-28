@@ -168,7 +168,7 @@ def detect_and_draw_(image, target_objects, api_key=None):
 
 if __name__ == "__main__":
     # Set your Google Cloud Vision API key here
-    API_KEY = "AIzaSyB6il6QMlg5lOkIqpXIk6abFZfN4Odbvug"  # Get from environment variable
+    API_KEY = "AIzaSyCswgRACKCalr5yDTICVRnQbfxS7A6wrvY"  # Get from environment variable
     if not API_KEY:
         raise ValueError("Please set GOOGLE_CLOUD_API_KEY environment variable")
     image_path = "photos/images.jpg"
