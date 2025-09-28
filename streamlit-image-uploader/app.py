@@ -150,8 +150,9 @@ def load_prompt(prompt_file):
 
 def main():
 
-    st.title("Housing Check")
+    st.title("HouseEval AI")
     api_key = os.getenv("GOOGLE_AI_API_KEY")
+    video_key = os.getenv("GOOGLE_AI_VIDEO_KEY")
     analyzer = RenovationAnalyzer(api_key)
 
     prompt_file = "streamlit-image-uploader/prompt.txt"
@@ -160,70 +161,22 @@ def main():
     uploaded_files = st.file_uploader(
         "Choose images...", type=["jpg", "jpeg", "png"], accept_multiple_files=True
     )
-    # Section for property description
+
+    st.write("### Uploaded Images")
+    images_container = st.container()
+
+    st.write("### Property Address")
+    address = st.text_input("Enter the property address (street, city, country)")
+
     st.write("### Property Description")
     property_description = st.text_area(
         "Add a description of the property (e.g., location, size, condition, etc.):"
     )
 
-    if property_description:
-        tmp = st.empty()
-
-        with tmp:
-            st.write("#### Processing description 🚀")
-
-        # Analyse property description with LLM
-        client = openai.OpenAI(
-            api_key="XCnfIu5iKUABB6YWUaIGsrwi91yz",  # api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY"),
-            base_url="https://api.swisscom.com/layer/swiss-ai-weeks/apertus-70b/v1",
-        )
-
-        stream = client.chat.completions.create(
-            model="swiss-ai/Apertus-70B",
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are the world's best real estate expert. I need you to read the \
-                following description of a property and return me an opinion. \
-                Your response should be concise, and have up to 150 words for potential real estate \
-                buyers or morgage provider, depending on the use case the user is signalizing. \
-                Your answer should be a holistic but very short analysis but also concentrated on \
-                whether renovations might be needed. Note that the very first thing you need to tell \
-                me is the year the building was constructed, and summarize all renovations performed in \
-                the property if the user has included these. STRUCTURE IT WITH BULLET POINTS. "
-                },
-                {"role": "user", "content": property_description},
-            ],
-            stream=True,
-        )
-
-        output_chunks = []
-        for chunk in stream:
-            content = chunk.choices[0].delta.content or ""
-            output_chunks.append(content)
-            print(content, end="", flush=True)
-
-        # Join all chunks into a single string
-        # TODO: Feed back description outputs as a summary
-        description_output = "".join(output_chunks)
-
-        # remove
-        tmp.empty()
-        st.write('#### Description successfully processed with Opertus ✅')
-        st.write(description_output)
-
-
-
-
-    st.write("### Property Address")
-    address = st.text_input("Enter the property address (street, city, country)")
-
     if uploaded_files:
         # Create a horizontal scrollable container for images
         # add a button to process the images
 
-        st.write("### Uploaded Images")
-        images_container = st.container()
         with images_container:
             cols = st.columns(len(uploaded_files))
             for col, uploaded_file in zip(cols, uploaded_files):
@@ -234,6 +187,9 @@ def main():
                     image, caption=f"{uploaded_file.name}", use_container_width=True
                 )
 
+                # Section for property description
+
+    if address:
         if st.button("Detect Anomalies"):
             st.write("### Anomaly Detection Results")
             targets = [
@@ -242,6 +198,12 @@ def main():
                 "chair",
                 "bathtub",
                 "Countertop",
+                "Roof",
+                "roof",
+                "Wall",
+                "wall",
+                "House",
+                "Window",
             ]
             anomaly_container = st.container()
             with anomaly_container:
@@ -252,7 +214,7 @@ def main():
                     image = image.resize((512, 512))
                     output_image_path = f"anomaly_{uploaded_file.name}"
                     img = detect_and_draw_(
-                        image, target_objects=targets, api_key=api_key
+                        image, target_objects=targets, api_key=video_key
                     )
                     # Transform from cv2 to PIL
                     output_im = Image.fromarray(img)
@@ -263,10 +225,9 @@ def main():
                         use_container_width=True,
                     )
 
-        # Placeholder for processing results
-        st.write("### Processing Results")
         results = []
         counter = 0
+
         for uploaded_file in uploaded_files:
             # Simulate processing with random outputs
             image = Image.open(uploaded_file)
@@ -361,6 +322,51 @@ def main():
         print(f"Results saved to: renovation_analysis_results.json")
         print(f"Summary report saved to: renovation_analysis_summary.md")
 
+        if property_description:
+            tmp = st.empty()
+
+            with tmp:
+                st.write("#### Processing description 🚀")
+
+            # Analyse property description with LLM
+            client = openai.OpenAI(
+                api_key="XCnfIu5iKUABB6YWUaIGsrwi91yz",  # api_key=os.getenv("SWISS_AI_PLATFORM_API_KEY"),
+                base_url="https://api.swisscom.com/layer/swiss-ai-weeks/apertus-70b/v1",
+            )
+
+            stream = client.chat.completions.create(
+                model="swiss-ai/Apertus-70B",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are the world's best real estate expert. I need you to read the \
+                    following description of a property and return me an opinion. \
+                    Your response should be concise, and have up to 150 words for potential real estate \
+                    buyers or morgage provider, depending on the use case the user is signalizing. \
+                    Your answer should be a holistic but very short analysis but also concentrated on \
+                    whether renovations might be needed. Note that the very first thing you need to tell \
+                    me is the year the building was constructed, and summarize all renovations performed in \
+                    the property if the user has included these. STRUCTURE IT WITH BULLET POINTS. ANSWER ONLY IN ENGLISH, 200 WORDS ABSOLUTE MAX!",
+                    },
+                    {"role": "user", "content": property_description},
+                ],
+                stream=True,
+            )
+
+            output_chunks = []
+            for chunk in stream:
+                content = chunk.choices[0].delta.content or ""
+                output_chunks.append(content)
+                print(content, end="", flush=True)
+
+            # Join all chunks into a single string
+            # TODO: Feed back description outputs as a summary
+            description_output = "".join(output_chunks)
+
+            # remove
+            tmp.empty()
+            st.write("#### Description successfully processed with Apertus ✅")
+            st.write(description_output)
         # Here the horizontal bar chart for renovation costs is displayed
         st.write("#### Cost Breakdown (interactive)")
 
@@ -377,6 +383,63 @@ def main():
                 st.altair_chart(chart, use_container_width=True)
             else:
                 st.info("No renovation expected 🤠👍.")
+
+        # Iterate through the categories in the JSON
+        for category, items in cost_analysis.items():
+            st.write(f"## {category}")  # Display the category name (e.g., "Kitchen")
+
+            for item in items:
+                # Display Photo Analysis
+                # with st.expander("Photo Analysis", expanded=True):
+                #     st.write("**Visible Elements:**")
+                #     st.write(", ".join(item["photo_analysis"]["visible_elements"]))
+                #     st.write(
+                #         "**Overall Condition:**",
+                #         item["photo_analysis"]["overall_condition"],
+                #     )
+                #     st.write(
+                #         "**Condition Details:**",
+                #         item["photo_analysis"]["condition_details"],
+                #     )
+
+                # Display Age Assessment
+                with st.expander("Age Assessment", expanded=True):
+                    st.write(
+                        "**Estimated Years Since Renovation:**",
+                        item["age_assessment"]["estimated_years_since_renovation"],
+                    )
+                    st.write(
+                        "**Confidence Level:**",
+                        item["age_assessment"]["confidence_level"],
+                    )
+                    st.write("**Aging Indicators:**")
+                    st.write(", ".join(item["age_assessment"]["aging_indicators"]))
+
+                # Display Renovation Prediction
+                with st.expander("Renovation Prediction", expanded=True):
+                    st.write(
+                        "**Years Until Renovation Needed:**",
+                        item["renovation_prediction"]["years_until_renovation_needed"],
+                    )
+                    st.write(
+                        "**Urgency Level:**",
+                        item["renovation_prediction"]["urgency_level"],
+                    )
+                    st.write("**Recommended Actions:**")
+                    st.write(
+                        ", ".join(item["renovation_prediction"]["recommended_actions"])
+                    )
+
+                # Display Risk Assessment
+                with st.expander("Risk Assessment", expanded=True):
+                    st.write("**Safety Risks:**")
+                    st.write(", ".join(item["risk_assessment"]["safety_risks"]))
+                    st.write("**Damage Risks:**")
+                    st.write(", ".join(item["risk_assessment"]["damage_risks"]))
+                    st.write(
+                        "**Priority Level:**",
+                        item["risk_assessment"]["priority_level"],
+                    )
 
     if address:
         st.write("### Property Location on Map")

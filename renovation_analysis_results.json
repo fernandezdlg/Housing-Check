@@ -1,79 +1,70 @@
-<<<<<<< HEAD
-{}
-=======
 {
-  "Kitchen": [
+  "Ceilings Walls Doors": [
     {
-      "category": "Kitchen",
+      "category": "Ceilings / Walls / Doors",
       "photo_analysis": {
         "visible_elements": [
-          "Refrigerator with Integrated Freezer Compartment",
-          "Glass Ceramic Cooktop",
-          "Stove and Oven",
-          "Steam Extractor / Fan",
-          "Kitchen Combination Furniture",
-          "Kitchen Countertop",
-          "Wall Panels",
-          "Operating Fittings"
+          "Ceiling (coated plaster)",
+          "Walls (coated plaster and wallpaper)",
+          "Door Frame (not visible)",
+          "Built-in Cabinets (chipboard)",
+          "Fittings",
+          "Interior window sills (painted)"
         ],
         "overall_condition": "good",
-        "condition_details": "The kitchen appears to be in good condition. The cabinet doors are in good shape. The countertop appears to be well maintained. The appliances look relatively new and clean."
+        "condition_details": "The ceiling and walls appear to be in good condition with no visible signs of damage. The built-in cabinets also seem to be well-maintained. The wallpaper shows a natural design."
       },
       "age_assessment": {
-        "estimated_years_since_renovation": 5,
+        "estimated_years_since_renovation": 2,
         "confidence_level": "medium",
         "aging_indicators": [
           "Modern design",
-          "Good condition of cabinets and appliances"
+          "Fresh looking paint",
+          "No visible wear and tear"
         ]
       },
       "renovation_prediction": {
-        "years_until_renovation_needed": 15,
+        "years_until_renovation_needed": 6,
         "urgency_level": "low",
         "recommended_actions": [
-          "Regular cleaning and maintenance",
-          "Monitor appliance performance"
+          "Regular cleaning and maintenance of walls and ceiling",
+          "Check the condition of fittings and locks"
         ]
       },
       "cost_analysis": {
         "immediate_repairs": {
-          "description": "No immediate repairs are needed.",
+          "description": "No immediate repairs are necessary.",
           "estimated_cost_chf": 0,
           "items": []
         },
         "future_renovation": {
-          "description": "Full kitchen renovation in 15 years, including replacement of appliances and potentially the countertop.",
-          "estimated_cost_chf": 7698,
+          "description": "Full renovation including repainting walls and ceiling, replacing wallpaper, and potentially updating built-in cabinets.",
+          "estimated_cost_chf": 1800,
           "items": [
             {
-              "item": "Refrigerator with Integrated Freezer Compartment",
-              "cost": 18,
-              "unit": "m²"
+              "item": "Coating on Wall and Ceiling Claddings/Plasters (Dispersion paint) - 50 m²",
+              "cost": 500,
+              "unit": "CHF"
             },
             {
-              "item": "Glass Ceramic Cooktop",
-              "cost": 2500,
-              "unit": "piece"
+              "item": "Wallpapers (Medium Quality, Textured, Printed or Raw Painted) - 10 m²",
+              "cost": 300,
+              "unit": "CHF"
             },
             {
-              "item": "Stove and Oven",
-              "cost": 1400,
-              "unit": "piece"
+              "item": "Built-in Cabinets (Chipboard) - fittings replacement - 10 pieces",
+              "cost": 150,
+              "unit": "CHF"
             },
             {
-              "item": "Steam Extractor / Fan",
-              "cost": 2300,
-              "unit": "piece"
+              "item": "Painting Work, Cover Floor: with Plastic",
+              "cost": 150,
+              "unit": "CHF"
             },
             {
-              "item": "Kitchen Countertop",
-              "cost": 1300,
-              "unit": "piece"
-            },
-            {
-              "item": "Operating Fittings",
-              "cost": 1980,
-              "unit": "piece"
+              "item": "Labor (estimate)",
+              "cost": 700,
+              "unit": "CHF"
             }
           ]
         }
@@ -83,13 +74,12 @@
           "None apparent"
         ],
         "damage_risks": [
-          "Potential for water damage around sink and dishwasher (not visible but standard risk)"
+          "Potential water damage to walls and ceiling from leaks, though not visible"
         ],
         "priority_level": "low"
       },
-      "photo_path": "Categorised_photos/Kitchen/image_0.jpg",
-      "timestamp": "2025-09-27T08:37:04.575452"
+      "photo_path": "Categorised_photos/Ceilings Walls Doors/image_0.jpg",
+      "timestamp": "2025-09-27T13:58:45.018023"
     }
   ]
 }
->>>>>>> 1f6f9e7e8c9d9f9f3865db6e7a0674b4a9b3b3ee

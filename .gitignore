@@ -11,6 +11,7 @@ pages/
 .env
 __pycache__/
 *__pycache__
+Categorised_photos/
 
 # Android Studio generated files and folders
 captures/

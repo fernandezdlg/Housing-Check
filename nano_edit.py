@@ -178,6 +178,7 @@ if __name__ == "__main__":
         "chair",
         "bathtub",
         "Countertop",
+        "roof",
     ]  # Individual items in a list
 
     detect_and_draw(image_path, targets, "annotated_output.jpg", api_key=API_KEY)
