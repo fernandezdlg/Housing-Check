@@ -24,6 +24,9 @@ captures/
 output-metadata.json
 renovation_analysis_results.json
 renovation_analysis_summary.md
+problems_*
+annotated_output.jpg
+
 # IntelliJ
 *.iml
 .idea/
