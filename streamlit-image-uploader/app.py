@@ -154,8 +154,8 @@ def load_prompt(prompt_file):
 def main():
 
     st.title("HouseEval AI")
-    api_key = os.getenv("GOOGLE_AI_API_KEY")
-    video_key = os.getenv("GOOGLE_AI_VIDEO_KEY")
+    api_key = os.getenv("GOOGLE_API_KEY")
+    video_key = os.getenv("GOOGLE_API_KEY")
     apertus_api_key = os.getenv("APERTUS_SWISSCOM_API_KEY")
     analyzer = RenovationAnalyzer(api_key)
 
@@ -217,9 +217,15 @@ def main():
                     # downsample image
                     image = image.resize((512, 512))
                     output_image_path = f"anomaly_{uploaded_file.name}"
-                    img = detect_and_draw_(
-                        image, target_objects=targets, api_key=video_key
-                    )
+                    try:
+                        img = detect_and_draw_(
+                            image, target_objects=targets, api_key=video_key
+                        )
+                    except Exception as e:
+                        st.error(
+                            f"Error processing anomalies {uploaded_file.name}: {e}"
+                        )
+                        continue
                     # Transform from cv2 to PIL
                     output_im = Image.fromarray(img)
                     # output_image = Image.open(output_image_path)
@@ -239,7 +245,11 @@ def main():
             image = image.resize((512, 512))
 
             # Clasify the image
-            clasify_image(image, api_key, counter)
+            try:
+                clasify_image(image, api_key, counter)
+            except Exception as e:
+                st.error(f"Error classifying image {uploaded_file.name}: {e}")
+                continue
             counter += 1
             analysis = analyze_image_(image, api_key, prompt=prompt)
             problems = analyze_image_problems(image, api_key)
@@ -334,7 +344,7 @@ def main():
 
             # Analyse property description with LLM
             client = openai.OpenAI(
-                api_key=apertus_api_key
+                api_key=apertus_api_key,
                 base_url="https://api.swisscom.com/layer/swiss-ai-weeks/apertus-70b/v1",
             )
 
