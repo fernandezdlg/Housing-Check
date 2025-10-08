@@ -4,7 +4,7 @@ This system analyzes photos of house rooms, detects problems, and marks them wit
 
 ## Running
 
-- Use environment.yml to create a conda environment with required packages.
+- Use `environment.yml` to create a conda environment with required packages.
 - Fill in your api keys. For reference, see `template.env`.
 - Run via `python -m streamlit run streamlit-image-uploader/app.py`
 
